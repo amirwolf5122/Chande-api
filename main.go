@@ -18,7 +18,7 @@ const (
 )
 
 var cryptoList = map[string]bool{
-	"Bitcoin": true, "Ethereum": true, "Dogecoin": true, "Binance Coin": true,
+	"BTC": true, "ETH": true, "DOGE": true, "BNB": true,
 }
 
 // Currency struct for storing price details
