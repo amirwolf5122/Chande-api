@@ -129,10 +129,16 @@ func fetchDataAPI2() (map[string]Currency, error) {
 }
 
 // Get current time in Jalali format
+
 func getJalaliTime() string {
-	now := time.Now()
-	jalaliDate := ptime.New(now) // استفاده از ptime به جای persian
-	return fmt.Sprintf("%04d/%02d/%02d - %02d:%02d", jalaliDate.Year(), jalaliDate.Month(), jalaliDate.Day(), now.Hour(), now.Minute())
+    loc, _ := time.LoadLocation("Asia/Tehran") // Set timezone to Tehran
+    now := time.Now().In(loc) // Convert current time to Tehran timezone
+
+    jalaliDate := ptime.New(now)
+    return fmt.Sprintf("%04d/%02d/%02d - %02d:%02d", 
+        jalaliDate.Year(), jalaliDate.Month(), jalaliDate.Day(), 
+        now.Hour(), now.Minute(),
+    )
 }
 
 // Process data and save to JSON
