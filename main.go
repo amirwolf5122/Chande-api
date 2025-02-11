@@ -9,7 +9,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/yaa110/go-persian-calendar"
+	ptime "github.com/yaa110/go-persian-calendar" // تغییر نام ایمپورت به ptime
 )
 
 const (
@@ -131,7 +131,7 @@ func fetchDataAPI2() (map[string]Currency, error) {
 // Get current time in Jalali format
 func getJalaliTime() string {
 	now := time.Now()
-	jalaliDate := persian.New(now)
+	jalaliDate := ptime.New(now) // استفاده از ptime به جای persian
 	return fmt.Sprintf("%04d/%02d/%02d - %02d:%02d", jalaliDate.Year(), jalaliDate.Month(), jalaliDate.Day(), now.Hour(), now.Minute())
 }
 
@@ -180,7 +180,7 @@ func processAndSaveData() error {
 		return err
 	}
 
-	return ioutil.WriteFile("arz.json", jsonData, 0644)
+	return ioutil.WriteFile("currency_data.json", jsonData, 0644)
 }
 
 func main() {
