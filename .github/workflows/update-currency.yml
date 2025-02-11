@@ -18,6 +18,9 @@ jobs:
         with:
           go-version: '1.21'
 
+      - name: Initialize Go Module (if needed)
+        run: go mod init Chand-api || true
+        
       - name: Install Dependencies
         run: |
           go mod tidy
