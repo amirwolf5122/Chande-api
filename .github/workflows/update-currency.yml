@@ -1,0 +1,39 @@
+name: Update Currency Data
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # Runs every 5 minutes
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.21'
+
+      - name: Initialize Go Module (if needed)
+        run: go mod init Chand-api || true
+
+      - name: Install Dependencies
+        run: |
+          go mod tidy
+          go get -u github.com/yaa110/go-persian-calendar
+
+      - name: Run Data Fetcher
+        run: go run main.go
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add currency_data.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m ""🚀 Updated - $(TZ='Asia/Tehran' date '+%Y-%m-%d %H:%M:%S')"" && git push)
+          
+         
