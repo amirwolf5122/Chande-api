@@ -18,9 +18,6 @@ jobs:
         with:
           go-version: '1.21'
 
-      - name: Initialize Go Module (if needed)
-        run: go mod init Chand-api || true
-
       - name: Install Dependencies
         run: |
           go mod tidy
@@ -34,6 +31,4 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add currency_data.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m ""🚀 Updated - $(TZ='Asia/Tehran' date '+%Y-%m-%d %H:%M:%S')"" && git push)
-          
-         
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🚀 Updated - $(TZ='Asia/Tehran' date '+%Y-%m-%d %H:%M:%S')" && git push)
