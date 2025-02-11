@@ -9,7 +9,7 @@ import (
 	"sync"
 	"time"
 
-	ptime "github.com/yaa110/go-persian-calendar" // تغییر نام ایمپورت به ptime
+	ptime "github.com/yaa110/go-persian-calendar"
 )
 
 const (
@@ -180,7 +180,7 @@ func processAndSaveData() error {
 		return err
 	}
 
-	return ioutil.WriteFile("currency_data.json", jsonData, 0644)
+	return ioutil.WriteFile("arz.json", jsonData, 0644)
 }
 
 func main() {
