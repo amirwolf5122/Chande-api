@@ -65,19 +65,14 @@ func fetchDataAPI1() (map[string]Currency, error) {
 	// خواندن کل پاسخ API
 	body, _ := ioutil.ReadAll(resp.Body)
 
-	// `result` باید `map[string]interface{}` باشه، چون خروجی API یه `map` است
-	var result map[string]interface{}
+	// `result` باید `map[string]interface{}` باشه
+	var result []map[string]interface{}
 	if err := json.Unmarshal(body, &result); err != nil {
 		return nil, err
 	}
 
 	currencies := make(map[string]Currency)
-	for _, value := range result { // اینجا `key` رو حذف کردم
-		item, ok := value.(map[string]interface{})
-		if !ok {
-			continue
-		}
-
+	for _, item := range result {
 		code, _ := item["slug"].(string)
 		name, _ := item["name"].(string)
 		flag, _ := item["flag"].(string)
@@ -98,6 +93,8 @@ func fetchDataAPI1() (map[string]Currency, error) {
 			Icon:  fmt.Sprintf("https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/%s.svg", flag),
 		}
 	}
+
+	fmt.Println("Final api1Data:", currencies) // چک کردن مقدار نهایی
 
 	return currencies, nil
 }
@@ -197,21 +194,25 @@ func processAndSaveData() error {
 		fmt.Println("Error fetching gold data:", errGold)
 	}
 
+	fmt.Println("api1Data (before merging):", api1Data) // لاگ برای بررسی
+	fmt.Println("goldData (before merging):", goldData)
+
 	finalData := make(map[string]Currency)
 
-	// بررسی می‌کنیم که `api1Data` مقدار داشته باشه
+	// ترکیب ارزها و طلاها
 	if api1Data != nil {
 		for code, data := range api1Data {
 			finalData[code] = data
 		}
 	}
 
-	// بررسی می‌کنیم که `goldData` مقدار داشته باشه
 	if goldData != nil {
 		for code, data := range goldData {
 			finalData[code] = data
 		}
 	}
+
+	fmt.Println("Final merged data:", finalData) // لاگ نهایی
 
 	// ایجاد خروجی نهایی
 	output := FinalOutput{
