@@ -13,13 +13,9 @@ import (
 )
 
 const (
-	api1URL = "https://admin.alanchand.com/api/arz"
-	api2URL = "https://btime.mastkhiar.xyz/v2/arz/"
+	api1URL  = "https://admin.alanchand.com/api/arz"
+	goldURL  = "https://admin.alanchand.com/api/gold"
 )
-
-var cryptoList = map[string]bool{
-	"BTC": true, "ETH": true, "DOGE": true, "BNB": true,
-}
 
 // Currency struct for storing price details
 type Currency struct {
@@ -35,10 +31,25 @@ type FinalOutput struct {
 	Currencies map[string]Currency `json:"currencies"`
 }
 
-// Fetch data from API 1
+// اطلاعات دستی برای اسم انگلیسی و آیکون طلاها
+var goldDetails = map[string]struct {
+	NameEn string
+	Icon   string
+}{
+	"abshodeh": {"Mithqal Gold", "https://platform.tgju.org/files/images/gold-bar-1622253729.png"},
+	"18ayar":   {"18K Gold", "https://platform.tgju.org/files/images/gold-bar-1-1622253841.png"},
+	"sekkeh":   {"Imami Coin", "https://platform.tgju.org/files/images/gold-1697963730.png"},
+	"bahar":    {"Bahar Azadi Coin", "https://platform.tgju.org/files/images/gold-1-1697963918.png"},
+	"nim":      {"Half Coin", "https://platform.tgju.org/files/images/money-1697964123.png"},
+	"rob":      {"Quarter Coin", "https://platform.tgju.org/files/images/revenue-1697964369.png"},
+	"sek":      {"Gram Coin", "https://platform.tgju.org/files/images/parsian-coin-1697964860.png"},
+	"usd_xau":  {"Ounce Gold", "https://platform.tgju.org/files/images/gold-1-1622253769.png"},
+}
+
+// Fetch data from API 1 (Currency Prices)
 func fetchDataAPI1() (map[string]Currency, error) {
 	reqBody := `{"lang": "fa"}`
-	req, err := http.NewRequest("POST", api1URL, ioutil.NopCloser(strings.NewReader(reqBody)))
+	req, err := http.NewRequest("POST", api1URL, strings.NewReader(reqBody))
 	if err != nil {
 		return nil, err
 	}
@@ -75,103 +86,108 @@ func fetchDataAPI1() (map[string]Currency, error) {
 	return currencies, nil
 }
 
-// Fetch data from API 2
-func fetchDataAPI2() (map[string]Currency, error) {
-	currenciesList := []string{
-		"USD", "EUR", "SEKEE", "GRAM", "MITHQAL", "AZADI", "THB",
-		"DKK", "BRL", "RUB", "INR", "CNY", "CHF", "AUD", "GBP",
-		"TRY", "JPY", "BTC", "ETH", "USDT", "DOGE", "BNB", "CAD",
+// Fetch data from Gold API
+func fetchGoldData() (map[string]Currency, error) {
+	reqBody := `{"lang": "fa"}`
+	req, err := http.NewRequest("POST", goldURL, strings.NewReader(reqBody))
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Set("Content-Type", "application/json")
+
+	client := &http.Client{}
+	resp, err := client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	defer resp.Body.Close()
+
+	var result map[string]interface{}
+	if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
+		return nil, err
 	}
 
-	var wg sync.WaitGroup
-	dataChan := make(chan Currency, len(currenciesList))
+	goldItems := result["gold"].([]interface{})
+	goldData := make(map[string]Currency)
 
-	for _, code := range currenciesList {
-		wg.Add(1)
-		go func(code string) {
-			defer wg.Done()
-			resp, err := http.Get(api2URL + code)
-			if err != nil || resp.StatusCode != 200 {
-				return
-			}
-			defer resp.Body.Close()
+	for _, item := range goldItems {
+		goldMap := item.(map[string]interface{})
+		code := goldMap["slug"].(string)
 
-			var result map[string]interface{}
-			if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
-				return
-			}
+		// گرفتن آخرین قیمت از آرایه قیمت‌ها
+		prices := goldMap["price"].([]interface{})
+		lastPrice := prices[0].(map[string]interface{})["price"].(float64)
 
-			priceKey := "rialPrice"
-			if cryptoList[code] {
-				priceKey = "price"
-			}
+		// تنظیم اطلاعات از `goldDetails`
+		details, exists := goldDetails[code]
+		enName := ""
+		icon := ""
+		if exists {
+			enName = details.NameEn
+			icon = details.Icon
+		}
 
-			dataChan <- Currency{
-				Code: code,
-				Name: map[string]string{
-					"fa": result["name"].(map[string]interface{})["fa"].(string),
-					"en": result["name"].(map[string]interface{})["en"].(string),
-				},
-				Price: result[priceKey].(float64),
-				Icon:  result["icon"].(string),
-			}
-		}(code)
+		goldData[code] = Currency{
+			Code: code,
+			Name: map[string]string{
+				"fa": goldMap["name"].(string),
+				"en": enName,
+			},
+			Price: lastPrice,
+			Icon:  icon,
+		}
 	}
-
-	wg.Wait()
-	close(dataChan)
-
-	currencies := make(map[string]Currency)
-	for currency := range dataChan {
-		currencies[currency.Code] = currency
-	}
-	return currencies, nil
+	return goldData, nil
 }
 
 // Get current time in Jalali format
-
 func getJalaliTime() string {
-    loc, _ := time.LoadLocation("Asia/Tehran") // Set timezone to Tehran
-    now := time.Now().In(loc) // Convert current time to Tehran timezone
-
-    jalaliDate := ptime.New(now)
-    return fmt.Sprintf("%04d/%02d/%02d, %02d:%02d", 
-        jalaliDate.Year(), jalaliDate.Month(), jalaliDate.Day(), 
-        now.Hour(), now.Minute(),
-    )
+	loc, _ := time.LoadLocation("Asia/Tehran")
+	now := time.Now().In(loc)
+	jalaliDate := ptime.New(now)
+	return fmt.Sprintf("%04d/%02d/%02d, %02d:%02d",
+		jalaliDate.Year(), jalaliDate.Month(), jalaliDate.Day(),
+		now.Hour(), now.Minute(),
+	)
 }
 
 // Process data and save to JSON
 func processAndSaveData() error {
-	api1Data, err1 := fetchDataAPI1()
-	api2Data, err2 := fetchDataAPI2()
+	var wg sync.WaitGroup
+	var api1Data, goldData map[string]Currency
+	var err1, errGold error
+
+	wg.Add(2)
+
+	go func() {
+		defer wg.Done()
+		api1Data, err1 = fetchDataAPI1()
+	}()
+
+	go func() {
+		defer wg.Done()
+		goldData, errGold = fetchGoldData()
+	}()
+
+	wg.Wait()
+
 	if err1 != nil {
 		fmt.Println("Error fetching data from API 1:", err1)
 	}
-	if err2 != nil {
-		fmt.Println("Error fetching data from API 2:", err2)
+	if errGold != nil {
+		fmt.Println("Error fetching gold data:", errGold)
 	}
 
 	finalData := make(map[string]Currency)
 
-	// Compare and update prices
-	for code, data1 := range api1Data {
-		if data2, exists := api2Data[code]; exists {
-			if data2.Price > data1.Price {
-				finalData[code] = data2
-			} else {
-				finalData[code] = data1
-			}
-		} else {
-			finalData[code] = data1
-		}
+	// اضافه کردن ارزها
+	for code, data := range api1Data {
+		finalData[code] = data
 	}
 
-	// Add missing currencies from API 2
-	for code, data2 := range api2Data {
-		if _, exists := api1Data[code]; !exists {
-			finalData[code] = data2
-		}
+	// اضافه کردن طلاها
+	for code, data := range goldData {
+		finalData[code] = data
 	}
 
 	// Create final output with timestamp
@@ -185,7 +201,6 @@ func processAndSaveData() error {
 	if err != nil {
 		return err
 	}
-
 	return ioutil.WriteFile("arz.json", jsonData, 0644)
 }
 
