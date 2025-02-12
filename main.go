@@ -20,7 +20,7 @@ const (
 // Currency struct for storing price details
 type Currency struct {
 	Code  string            `json:"code"`
-	Name  map[string]string `json:"name"`
+	Name  string            `json:"name"`
 	Price float64           `json:"price"`
 	Icon  string            `json:"icon"`
 }
@@ -31,29 +31,38 @@ type FinalOutput struct {
 	Currencies map[string]Currency `json:"currencies"`
 }
 
-// اطلاعات دستی برای اسم انگلیسی و آیکون طلاها
+// اطلاعات دستی برای آیکون طلاها
 var goldDetails = map[string]struct {
-	NameEn string
-	Icon   string
+	Icon string
 }{
-	"abshodeh": {"Mithqal Gold", "https://platform.tgju.org/files/images/gold-bar-1622253729.png"},
-	"18ayar":   {"18 Karat Gold", "https://platform.tgju.org/files/images/gold-bar-1-1622253841.png"},
-	"sekkeh":   {"Emami Coin", "https://platform.tgju.org/files/images/gold-1697963730.png"},
-	"bahar":    {"Bahar Azadi Coin", "https://platform.tgju.org/files/images/gold-1-1697963918.png"},
-	"nim":      {"Half Coin", "https://platform.tgju.org/files/images/money-1697964123.png"},
-	"rob":      {"Quarter Coin", "https://platform.tgju.org/files/images/revenue-1697964369.png"},
-	"sek":      {"Gram Coin", "https://platform.tgju.org/files/images/parsian-coin-1697964860.png"},
-	"usd_xau":  {"Ounce Gold", "https://platform.tgju.org/files/images/gold-1-1622253769.png"},
+	"abshodeh": {"https://platform.tgju.org/files/images/gold-bar-1622253729.png"},
+	"18ayar":   {"https://platform.tgju.org/files/images/gold-bar-1-1622253841.png"},
+	"sekkeh":   {"https://platform.tgju.org/files/images/gold-1697963730.png"},
+	"bahar":    {"https://platform.tgju.org/files/images/gold-1-1697963918.png"},
+	"nim":      {"https://platform.tgju.org/files/images/money-1697964123.png"},
+	"rob":      {"https://platform.tgju.org/files/images/revenue-1697964369.png"},
+	"sek":      {"https://platform.tgju.org/files/images/parsian-coin-1697964860.png"},
+	"usd_xau":  {"https://platform.tgju.org/files/images/gold-1-1622253769.png"},
 }
 
 // Fetch data from API 1 (Currency Prices)
 func fetchDataAPI1() (map[string]Currency, error) {
-	reqBody := `{"lang": "fa"}`
-	req, err := http.NewRequest("POST", api1URL, strings.NewReader(reqBody))
+	url := "https://admin.alanchand.com/api/arz"
+	data := map[string]string{
+		"lang": "fa",
+	}
+
+	// تبدیل داده‌ها به JSON
+	body, err := json.Marshal(data)
 	if err != nil {
 		return nil, err
 	}
-	req.Header.Set("Content-Type", "application/json")
+
+	// ارسال درخواست
+	req, err := http.NewRequest("POST", url, ioutil.NopCloser(bytes.NewReader(body)))
+	if err != nil {
+		return nil, err
+	}
 
 	client := &http.Client{}
 	resp, err := client.Do(req)
@@ -62,39 +71,30 @@ func fetchDataAPI1() (map[string]Currency, error) {
 	}
 	defer resp.Body.Close()
 
-	// خواندن کل پاسخ API
-	body, _ := ioutil.ReadAll(resp.Body)
+	if resp.StatusCode != 200 {
+		return nil, fmt.Errorf("failed to fetch data: %v", resp.StatusCode)
+	}
 
-	// `result` باید `map[string]interface{}` باشه
-	var result []map[string]interface{}
-	if err := json.Unmarshal(body, &result); err != nil {
+	// تجزیه داده‌های JSON
+	var result map[string]interface{}
+	err = json.NewDecoder(resp.Body).Decode(&result)
+	if err != nil {
 		return nil, err
 	}
 
+	// تبدیل داده‌ها به ارزها
 	currencies := make(map[string]Currency)
-	for _, item := range result {
-		code, _ := item["slug"].(string)
-		name, _ := item["name"].(string)
-		flag, _ := item["flag"].(string)
-
-		price := 0.0
-		if priceList, ok := item["price"].([]interface{}); ok && len(priceList) > 0 {
-			if priceEntry, ok := priceList[0].(map[string]interface{}); ok {
-				if p, exists := priceEntry["price"].(float64); exists {
-					price = p
-				}
+	if currenciesData, ok := result["currencies"].(map[string]interface{}); ok {
+		for code, item := range currenciesData {
+			itemData := item.(map[string]interface{})
+			currencies[code] = Currency{
+				Code:  code,
+				Name:  itemData["name"].(string),
+				Price: itemData["price"].(float64),
+				Icon:  itemData["icon"].(string),
 			}
 		}
-
-		currencies[code] = Currency{
-			Code:  code,
-			Name:  map[string]string{"fa": name},
-			Price: price,
-			Icon:  fmt.Sprintf("https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/%s.svg", flag),
-		}
 	}
-
-	fmt.Println("Final api1Data:", currencies) // چک کردن مقدار نهایی
 
 	return currencies, nil
 }
@@ -136,19 +136,14 @@ func fetchGoldData() (map[string]Currency, error) {
 
 		// تنظیم اطلاعات از `goldDetails`
 		details, exists := goldDetails[code]
-		enName := ""
 		icon := ""
 		if exists {
-			enName = details.NameEn
 			icon = details.Icon
 		}
 
 		goldData[code] = Currency{
-			Code: code,
-			Name: map[string]string{
-				"fa": goldMap["name"].(string),
-				"en": enName,
-			},
+			Code:  code,
+			Name:  goldMap["name"].(string),
 			Price: lastPrice,
 			Icon:  icon,
 		}
@@ -194,9 +189,6 @@ func processAndSaveData() error {
 		fmt.Println("Error fetching gold data:", errGold)
 	}
 
-	fmt.Println("api1Data (before merging):", api1Data) // لاگ برای بررسی
-	fmt.Println("goldData (before merging):", goldData)
-
 	finalData := make(map[string]Currency)
 
 	// ترکیب ارزها و طلاها
@@ -211,8 +203,6 @@ func processAndSaveData() error {
 			finalData[code] = data
 		}
 	}
-
-	fmt.Println("Final merged data:", finalData) // لاگ نهایی
 
 	// ایجاد خروجی نهایی
 	output := FinalOutput{
