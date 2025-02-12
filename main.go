@@ -65,9 +65,6 @@ func fetchDataAPI1() (map[string]Currency, error) {
 	// خواندن کل پاسخ API
 	body, _ := ioutil.ReadAll(resp.Body)
 
-	// چاپ پاسخ خام برای بررسی
-	fmt.Println("Raw API Response:", string(body))
-
 	// `result` باید `map[string]interface{}` باشه، چون خروجی API یه `map` است
 	var result map[string]interface{}
 	if err := json.Unmarshal(body, &result); err != nil {
@@ -202,12 +199,18 @@ func processAndSaveData() error {
 
 	finalData := make(map[string]Currency)
 
-	// ترکیب ارزها و طلاها
-	for code, data := range api1Data {
-		finalData[code] = data
+	// بررسی می‌کنیم که `api1Data` مقدار داشته باشه
+	if api1Data != nil {
+		for code, data := range api1Data {
+			finalData[code] = data
+		}
 	}
-	for code, data := range goldData {
-		finalData[code] = data
+
+	// بررسی می‌کنیم که `goldData` مقدار داشته باشه
+	if goldData != nil {
+		for code, data := range goldData {
+			finalData[code] = data
+		}
 	}
 
 	// ایجاد خروجی نهایی
