@@ -64,7 +64,7 @@ func fetchDataAPI1() (map[string]Currency, error) {
 
 	// خواندن کل پاسخ API و تبدیل به JSON
 	body, _ := ioutil.ReadAll(resp.Body)
-	var result []map[string]interface{} // اصلاح این قسمت برای دریافت آرایه به جای map
+	var result []map[string]interface{} // تغییر اینجا برای دریافت یک لیست از دیکشنری‌ها
 	if err := json.Unmarshal(body, &result); err != nil {
 		return nil, err
 	}
@@ -78,13 +78,15 @@ func fetchDataAPI1() (map[string]Currency, error) {
 		price := 0.0
 		if priceList, ok := item["price"].([]interface{}); ok && len(priceList) > 0 {
 			if priceEntry, ok := priceList[0].(map[string]interface{}); ok {
-				price = priceEntry["price"].(float64)
+				if p, exists := priceEntry["price"].(float64); exists {
+					price = p
+				}
 			}
 		}
 
 		currencies[code] = Currency{
-			Code: code,
-			Name: map[string]string{"fa": name},
+			Code:  code,
+			Name:  map[string]string{"fa": name},
 			Price: price,
 			Icon:  fmt.Sprintf("https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/%s.svg", flag),
 		}
