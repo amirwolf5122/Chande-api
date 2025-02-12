@@ -62,15 +62,25 @@ func fetchDataAPI1() (map[string]Currency, error) {
 	}
 	defer resp.Body.Close()
 
-	// خواندن کل پاسخ API و تبدیل به JSON
+	// خواندن کل پاسخ API
 	body, _ := ioutil.ReadAll(resp.Body)
-	var result []map[string]interface{} // تغییر اینجا برای دریافت یک لیست از دیکشنری‌ها
+
+	// بررسی و چاپ پاسخ خام API برای دیباگ
+	fmt.Println("Raw API Response:", string(body))
+
+	// اینجا متغیر رو به `map[string]interface{}` تغییر دادم، چون خروجی API یه شیء (نه لیست) هست
+	var result map[string]interface{}
 	if err := json.Unmarshal(body, &result); err != nil {
 		return nil, err
 	}
 
 	currencies := make(map[string]Currency)
-	for _, item := range result {
+	for key, value := range result { // اینجا مستقیم روی مقدارهای map لوپ می‌زنیم
+		item, ok := value.(map[string]interface{})
+		if !ok {
+			continue
+		}
+
 		code, _ := item["slug"].(string)
 		name, _ := item["name"].(string)
 		flag, _ := item["flag"].(string)
