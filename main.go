@@ -95,7 +95,7 @@ func fetchDataAPI1() (map[string]Currency, error) {
 
 			currencies[code] = Currency{
 				Code:  code,
-				Name:  map[string]string{"fa": name}, // حذف اسم انگلیسی
+				Name: name,
 				Price: price,
 				Icon:  icon,
 			}
