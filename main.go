@@ -37,7 +37,7 @@ var goldDetails = map[string]struct {
 	Icon   string
 }{
 	"abshodeh": {"Mithqal Gold", "https://platform.tgju.org/files/images/gold-bar-1622253729.png"},
-	"18ayar":   {"18K Gold", "https://platform.tgju.org/files/images/gold-bar-1-1622253841.png"},
+	"18ayar":   {"18 Karat Gold", "https://platform.tgju.org/files/images/gold-bar-1-1622253841.png"},
 	"sekkeh":   {"Imami Coin", "https://platform.tgju.org/files/images/gold-1697963730.png"},
 	"bahar":    {"Bahar Azadi Coin", "https://platform.tgju.org/files/images/gold-1-1697963918.png"},
 	"nim":      {"Half Coin", "https://platform.tgju.org/files/images/money-1697964123.png"},
@@ -180,12 +180,10 @@ func processAndSaveData() error {
 
 	finalData := make(map[string]Currency)
 
-	// اضافه کردن ارزها
+	// ترکیب ارزها و طلاها
 	for code, data := range api1Data {
 		finalData[code] = data
 	}
-
-	// اضافه کردن طلاها
 	for code, data := range goldData {
 		finalData[code] = data
 	}
