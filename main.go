@@ -48,21 +48,17 @@ var goldDetails = map[string]struct {
 
 // Fetch data from API 1 (Currency Prices)
 func fetchDataAPI1() (map[string]Currency, error) {
-	data := map[string]string{
-		"lang": "fa",
-	}
-
-	// تبدیل داده‌ها به JSON
+	data := map[string]string{"lang": "fa"}
 	body, err := json.Marshal(data)
 	if err != nil {
 		return nil, err
 	}
 
-	// ارسال درخواست
-	req, err := http.NewRequest("POST", api1URL, ioutil.NopCloser(bytes.NewReader(body)))
+	req, err := http.NewRequest("POST", api1URL, bytes.NewReader(body))
 	if err != nil {
 		return nil, err
 	}
+	req.Header.Set("Content-Type", "application/json")
 
 	client := &http.Client{}
 	resp, err := client.Do(req)
@@ -75,23 +71,33 @@ func fetchDataAPI1() (map[string]Currency, error) {
 		return nil, fmt.Errorf("failed to fetch data: %v", resp.StatusCode)
 	}
 
-	// تجزیه داده‌های JSON
+	// دیکد کردن JSON
 	var result map[string]interface{}
 	err = json.NewDecoder(resp.Body).Decode(&result)
 	if err != nil {
 		return nil, err
 	}
 
-	// تبدیل داده‌ها به ارزها
+	// استخراج داده‌های مربوط به ارزها
 	currencies := make(map[string]Currency)
-	if currenciesData, ok := result["currencies"].(map[string]interface{}); ok {
-		for code, item := range currenciesData {
+	if arzData, ok := result["arz"].([]interface{}); ok {
+		for _, item := range arzData {
 			itemData := item.(map[string]interface{})
+			code := itemData["slug"].(string)
+			name := itemData["name"].(string)
+			icon := fmt.Sprintf("https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/%s.svg", itemData["flag"].(string))
+
+			// گرفتن قیمت آخر
+			var price float64
+			if prices, ok := itemData["price"].([]interface{}); ok && len(prices) > 0 {
+				price = prices[0].(map[string]interface{})["price"].(float64)
+			}
+
 			currencies[code] = Currency{
 				Code:  code,
-				Name:  itemData["name"].(string),
-				Price: itemData["price"].(float64),
-				Icon:  itemData["icon"].(string),
+				Name:  map[string]string{"fa": name}, // حذف اسم انگلیسی
+				Price: price,
+				Icon:  icon,
 			}
 		}
 	}
