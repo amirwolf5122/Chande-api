@@ -92,27 +92,24 @@ func fetchDataAPI1() (map[string]Currency, error) {
 }
 
 // Fetch data from Gold API
-func fetchGoldData() map[string]Currency {
+func fetchGoldData() (map[string]Currency, error) {
 	reqBody := `{"lang": "fa"}`
 	req, err := http.NewRequest("POST", goldURL, strings.NewReader(reqBody))
 	if err != nil {
-		fmt.Println("Error creating request for Gold API:", err)
-		return nil
+		return nil, err
 	}
 	req.Header.Set("Content-Type", "application/json")
 
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
-		fmt.Println("Error fetching Gold API:", err)
-		return nil
+		return nil, err
 	}
 	defer resp.Body.Close()
 
 	var result map[string]interface{}
 	if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
-		fmt.Println("Error decoding Gold API response:", err)
-		return nil
+		return nil, err
 	}
 
 	goldItems := result["gold"].([]interface{})
@@ -124,7 +121,10 @@ func fetchGoldData() map[string]Currency {
 
 		// گرفتن آخرین قیمت از آرایه قیمت‌ها
 		prices := goldMap["price"].([]interface{})
-		lastPrice := prices[0].(map[string]interface{})["price"].(float64)
+		lastPrice := 0.0
+		if len(prices) > 0 {
+			lastPrice = prices[0].(map[string]interface{})["price"].(float64)
+		}
 
 		// تنظیم اطلاعات از `goldDetails`
 		details, exists := goldDetails[code]
@@ -145,7 +145,7 @@ func fetchGoldData() map[string]Currency {
 			Icon:  icon,
 		}
 	}
-	return goldData
+	return goldData, nil
 }
 
 // Get current time in Jalali format
@@ -163,47 +163,46 @@ func getJalaliTime() string {
 func processAndSaveData() error {
 	var wg sync.WaitGroup
 	var api1Data, goldData map[string]Currency
+	var err1, errGold error
 
 	wg.Add(2)
 
 	go func() {
 		defer wg.Done()
-		api1Data = fetchDataAPI1()
+		api1Data, err1 = fetchDataAPI1()
 	}()
 
 	go func() {
 		defer wg.Done()
-		goldData = fetchGoldData()
+		goldData, errGold = fetchGoldData()
 	}()
 
 	wg.Wait()
 
+	if err1 != nil {
+		fmt.Println("Error fetching data from API 1:", err1)
+	}
+	if errGold != nil {
+		fmt.Println("Error fetching gold data:", errGold)
+	}
+
 	finalData := make(map[string]Currency)
 
-	// ترکیب ارزها و طلاها (اگه `nil` نباشن)
-	if api1Data != nil {
-		for code, data := range api1Data {
-			finalData[code] = data
-		}
+	// ترکیب ارزها و طلاها
+	for code, data := range api1Data {
+		finalData[code] = data
 	}
-	if goldData != nil {
-		for code, data := range goldData {
-			finalData[code] = data
-		}
+	for code, data := range goldData {
+		finalData[code] = data
 	}
 
-	if len(finalData) == 0 {
-		fmt.Println("No data available, nothing to save.")
-		return nil
-	}
-
-	// Create final output with timestamp
+	// ایجاد خروجی نهایی
 	output := FinalOutput{
 		Date:       getJalaliTime(),
 		Currencies: finalData,
 	}
 
-	// Save to JSON file
+	// ذخیره در فایل JSON
 	jsonData, err := json.MarshalIndent(output, "", "  ")
 	if err != nil {
 		return err
