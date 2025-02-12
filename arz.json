@@ -1,22 +1,22 @@
 {
-  "date": "1403/11/24, 17:48",
+  "date": "1403/11/24, 19:23",
   "currencies": {
     "18ayar": {
       "code": "18ayar",
       "name": {
         "en": "18 Karat Gold",
-        "fa": "طلای 18 عیار"
+        "fa": "یک گرم طلای 18 عیار"
       },
-      "price": 6327160,
+      "price": 6385340,
       "icon": "https://platform.tgju.org/files/images/gold-bar-1-1622253841.png"
     },
     "abshodeh": {
       "code": "abshodeh",
       "name": {
         "en": "Mithqal Gold",
-        "fa": "طلای آبشده"
+        "fa": "مثقال طلا"
       },
-      "price": 27410000,
+      "price": 27660000,
       "icon": "https://platform.tgju.org/files/images/gold-bar-1622253729.png"
     },
     "bahar": {
@@ -25,7 +25,7 @@
         "en": "Bahar Azadi Coin",
         "fa": "سکه بهار آزادی"
       },
-      "price": 68830000,
+      "price": 68790000,
       "icon": "https://platform.tgju.org/files/images/gold-1-1697963918.png"
     },
     "nim": {
@@ -34,7 +34,7 @@
         "en": "Half Coin",
         "fa": "نیم سکه"
       },
-      "price": 39800000,
+      "price": 40000000,
       "icon": "https://platform.tgju.org/files/images/money-1697964123.png"
     },
     "rob": {
@@ -43,7 +43,7 @@
         "en": "Quarter Coin",
         "fa": "ربع سکه"
       },
-      "price": 20100000,
+      "price": 20200000,
       "icon": "https://platform.tgju.org/files/images/revenue-1697964369.png"
     },
     "sek": {
@@ -52,7 +52,7 @@
         "en": "Gram Coin",
         "fa": "سکه گرمی"
       },
-      "price": 8140000,
+      "price": 8160000,
       "icon": "https://platform.tgju.org/files/images/parsian-coin-1697964860.png"
     },
     "sekkeh": {
@@ -61,7 +61,7 @@
         "en": "Emami Coin",
         "fa": "سکه امامی"
       },
-      "price": 71870000,
+      "price": 72080000,
       "icon": "https://platform.tgju.org/files/images/gold-1697963730.png"
     },
     "usd_xau": {
@@ -70,7 +70,7 @@
         "en": "Ounce Gold",
         "fa": "انس طلا"
       },
-      "price": 2885.86,
+      "price": 2894.59,
       "icon": "https://platform.tgju.org/files/images/gold-1-1622253769.png"
     }
   }
