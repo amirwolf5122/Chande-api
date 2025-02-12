@@ -54,8 +54,10 @@ func fetchDataAPI1() (map[string]Currency, error) {
 	for _, item := range result["arz"] {
 		code := item["slug"].(string)
 		price := 0.0
-		if len(item["price"].([]interface{})) > 0 {
-			price = item["price"].([]interface{})[0].(map[string]interface{})["price"].(float64)
+		if prices, ok := item["price"].([]interface{}); ok && len(prices) > 0 {
+			if priceMap, ok := prices[0].(map[string]interface{}); ok {
+				price = priceMap["price"].(float64)
+			}
 		}
 		currencies[code] = Currency{
 			Code: code,
@@ -91,7 +93,7 @@ func fetchGoldData() (map[string]Currency, error) {
 
 	// Manual settings for gold icons and names
 	goldNames := map[string]map[string]string{
-		"abshodeh": {"fa": "مثقال طلا", "en": "Mithqal Gold"},
+		"abshodeh": {"fa": "طلای آبشده", "en": "Mithqal Gold"},
 		"18ayar":   {"fa": "طلای 18 عیار", "en": "18 Karat Gold"},
 		"sekkeh":   {"fa": "سکه امامی", "en": "Emami Coin"},
 		"bahar":    {"fa": "سکه بهار آزادی", "en": "Bahar Azadi Coin"},
@@ -115,10 +117,15 @@ func fetchGoldData() (map[string]Currency, error) {
 	goldCurrencies := make(map[string]Currency)
 	for _, item := range result["gold"].([]interface{}) {
 		code := item.(map[string]interface{})["slug"].(string)
-		price := item.(map[string]interface{})["price"].([]interface{})[0].(map[string]interface{})["price"].(float64)
+		price := 0.0
+		if prices, ok := item.(map[string]interface{})["price"].([]interface{}); ok && len(prices) > 0 {
+			if priceMap, ok := prices[0].(map[string]interface{}); ok {
+				price = priceMap["price"].(float64)
+			}
+		}
 		goldCurrencies[code] = Currency{
-			Code: code,
-			Name: goldNames[code],
+			Code:  code,
+			Name:  goldNames[code],
 			Price: price,
 			Icon:  goldIcons[code],
 		}
