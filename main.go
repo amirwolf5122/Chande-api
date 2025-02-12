@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -47,7 +48,6 @@ var goldDetails = map[string]struct {
 
 // Fetch data from API 1 (Currency Prices)
 func fetchDataAPI1() (map[string]Currency, error) {
-	url := "https://admin.alanchand.com/api/arz"
 	data := map[string]string{
 		"lang": "fa",
 	}
@@ -59,7 +59,7 @@ func fetchDataAPI1() (map[string]Currency, error) {
 	}
 
 	// ارسال درخواست
-	req, err := http.NewRequest("POST", url, ioutil.NopCloser(bytes.NewReader(body)))
+	req, err := http.NewRequest("POST", api1URL, ioutil.NopCloser(bytes.NewReader(body)))
 	if err != nil {
 		return nil, err
 	}
