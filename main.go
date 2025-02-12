@@ -49,7 +49,7 @@ var goldDetails = map[string]struct {
 // Fetch data from API 1 (Currency Prices)
 func fetchDataAPI1() (map[string]Currency, error) {
 	reqBody := `{"lang": "fa"}`
-	req, err := http.NewRequest("POST", api1URL, ioutil.NopCloser(strings.NewReader(reqBody)))
+	req, err := http.NewRequest("POST", api1URL, strings.NewReader(reqBody))
 	if err != nil {
 		return nil, err
 	}
@@ -71,9 +71,14 @@ func fetchDataAPI1() (map[string]Currency, error) {
 	for _, item := range result["arz"] {
 		code := item["slug"].(string)
 		price := 0.0
-		if len(item["price"].([]interface{})) > 0 {
-			price = item["price"].([]interface{})[0].(map[string]interface{})["price"].(float64)
+
+		// بررسی کنیم که آرایه price خالی نباشه
+		if priceList, ok := item["price"].([]interface{}); ok && len(priceList) > 0 {
+			if priceEntry, ok := priceList[0].(map[string]interface{}); ok {
+				price = priceEntry["price"].(float64)
+			}
 		}
+
 		currencies[code] = Currency{
 			Code: code,
 			Name: map[string]string{
