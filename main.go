@@ -47,27 +47,24 @@ var goldDetails = map[string]struct {
 }
 
 // Fetch data from API 1 (Currency Prices)
-func fetchDataAPI1() map[string]Currency {
+func fetchDataAPI1() (map[string]Currency, error) {
 	reqBody := `{"lang": "fa"}`
-	req, err := http.NewRequest("POST", api1URL, strings.NewReader(reqBody))
+	req, err := http.NewRequest("POST", api1URL, ioutil.NopCloser(strings.NewReader(reqBody)))
 	if err != nil {
-		fmt.Println("Error creating request for API 1:", err)
-		return nil
+		return nil, err
 	}
 	req.Header.Set("Content-Type", "application/json")
 
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
-		fmt.Println("Error fetching API 1:", err)
-		return nil
+		return nil, err
 	}
 	defer resp.Body.Close()
 
 	var result map[string][]map[string]interface{}
 	if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
-		fmt.Println("Error decoding API 1 response:", err)
-		return nil
+		return nil, err
 	}
 
 	currencies := make(map[string]Currency)
@@ -86,7 +83,7 @@ func fetchDataAPI1() map[string]Currency {
 			Icon:  fmt.Sprintf("https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/%s.svg", item["flag"].(string)),
 		}
 	}
-	return currencies
+	return currencies, nil
 }
 
 // Fetch data from Gold API
