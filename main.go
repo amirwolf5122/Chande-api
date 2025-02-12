@@ -13,8 +13,8 @@ import (
 )
 
 const (
-	api1URL  = "https://admin.alanchand.com/api/arz"
-	goldURL  = "https://admin.alanchand.com/api/gold"
+	api1URL = "https://admin.alanchand.com/api/arz"
+	goldURL = "https://admin.alanchand.com/api/gold"
 )
 
 // Currency struct for storing price details
@@ -47,24 +47,27 @@ var goldDetails = map[string]struct {
 }
 
 // Fetch data from API 1 (Currency Prices)
-func fetchDataAPI1() (map[string]Currency, error) {
+func fetchDataAPI1() map[string]Currency {
 	reqBody := `{"lang": "fa"}`
 	req, err := http.NewRequest("POST", api1URL, strings.NewReader(reqBody))
 	if err != nil {
-		return nil, err
+		fmt.Println("Error creating request for API 1:", err)
+		return nil
 	}
 	req.Header.Set("Content-Type", "application/json")
 
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
-		return nil, err
+		fmt.Println("Error fetching API 1:", err)
+		return nil
 	}
 	defer resp.Body.Close()
 
 	var result map[string][]map[string]interface{}
 	if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
-		return nil, err
+		fmt.Println("Error decoding API 1 response:", err)
+		return nil
 	}
 
 	currencies := make(map[string]Currency)
@@ -83,28 +86,31 @@ func fetchDataAPI1() (map[string]Currency, error) {
 			Icon:  fmt.Sprintf("https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/%s.svg", item["flag"].(string)),
 		}
 	}
-	return currencies, nil
+	return currencies
 }
 
 // Fetch data from Gold API
-func fetchGoldData() (map[string]Currency, error) {
+func fetchGoldData() map[string]Currency {
 	reqBody := `{"lang": "fa"}`
 	req, err := http.NewRequest("POST", goldURL, strings.NewReader(reqBody))
 	if err != nil {
-		return nil, err
+		fmt.Println("Error creating request for Gold API:", err)
+		return nil
 	}
 	req.Header.Set("Content-Type", "application/json")
 
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
-		return nil, err
+		fmt.Println("Error fetching Gold API:", err)
+		return nil
 	}
 	defer resp.Body.Close()
 
 	var result map[string]interface{}
 	if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
-		return nil, err
+		fmt.Println("Error decoding Gold API response:", err)
+		return nil
 	}
 
 	goldItems := result["gold"].([]interface{})
@@ -137,7 +143,7 @@ func fetchGoldData() (map[string]Currency, error) {
 			Icon:  icon,
 		}
 	}
-	return goldData, nil
+	return goldData
 }
 
 // Get current time in Jalali format
@@ -155,37 +161,38 @@ func getJalaliTime() string {
 func processAndSaveData() error {
 	var wg sync.WaitGroup
 	var api1Data, goldData map[string]Currency
-	var err1, errGold error
 
 	wg.Add(2)
 
 	go func() {
 		defer wg.Done()
-		api1Data, err1 = fetchDataAPI1()
+		api1Data = fetchDataAPI1()
 	}()
 
 	go func() {
 		defer wg.Done()
-		goldData, errGold = fetchGoldData()
+		goldData = fetchGoldData()
 	}()
 
 	wg.Wait()
 
-	if err1 != nil {
-		fmt.Println("Error fetching data from API 1:", err1)
-	}
-	if errGold != nil {
-		fmt.Println("Error fetching gold data:", errGold)
-	}
-
 	finalData := make(map[string]Currency)
 
-	// ترکیب ارزها و طلاها
-	for code, data := range api1Data {
-		finalData[code] = data
+	// ترکیب ارزها و طلاها (اگه `nil` نباشن)
+	if api1Data != nil {
+		for code, data := range api1Data {
+			finalData[code] = data
+		}
 	}
-	for code, data := range goldData {
-		finalData[code] = data
+	if goldData != nil {
+		for code, data := range goldData {
+			finalData[code] = data
+		}
+	}
+
+	if len(finalData) == 0 {
+		fmt.Println("No data available, nothing to save.")
+		return nil
 	}
 
 	// Create final output with timestamp
