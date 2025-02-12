@@ -62,17 +62,20 @@ func fetchDataAPI1() (map[string]Currency, error) {
 	}
 	defer resp.Body.Close()
 
-	var result map[string][]map[string]interface{}
-	if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
+	// خواندن کل پاسخ API و تبدیل به JSON
+	body, _ := ioutil.ReadAll(resp.Body)
+	var result []map[string]interface{} // اصلاح این قسمت برای دریافت آرایه به جای map
+	if err := json.Unmarshal(body, &result); err != nil {
 		return nil, err
 	}
 
 	currencies := make(map[string]Currency)
-	for _, item := range result["arz"] {
-		code := item["slug"].(string)
-		price := 0.0
+	for _, item := range result {
+		code, _ := item["slug"].(string)
+		name, _ := item["name"].(string)
+		flag, _ := item["flag"].(string)
 
-		// بررسی کنیم که آرایه price خالی نباشه
+		price := 0.0
 		if priceList, ok := item["price"].([]interface{}); ok && len(priceList) > 0 {
 			if priceEntry, ok := priceList[0].(map[string]interface{}); ok {
 				price = priceEntry["price"].(float64)
@@ -81,13 +84,12 @@ func fetchDataAPI1() (map[string]Currency, error) {
 
 		currencies[code] = Currency{
 			Code: code,
-			Name: map[string]string{
-				"fa": item["name"].(string),
-			},
+			Name: map[string]string{"fa": name},
 			Price: price,
-			Icon:  fmt.Sprintf("https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/%s.svg", item["flag"].(string)),
+			Icon:  fmt.Sprintf("https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/%s.svg", flag),
 		}
 	}
+
 	return currencies, nil
 }
 
