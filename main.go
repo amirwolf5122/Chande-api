@@ -156,6 +156,11 @@ func fetchGoldData() ([]Currency, error) {
 			lastPrice = prices[0].(map[string]interface{})["price"].(float64)
 		}
 
+		// اگر کد sek بود، آن را به gram تغییر بده (بخاطر همنام بودن ی ارز دیگه)
+		if code == "sek" {
+			code = "gram"
+		}
+
 		// گرفتن اطلاعات از `goldDetails`
 		details, exists := goldDetails[code]
 		icon := ""
@@ -172,12 +177,11 @@ func fetchGoldData() ([]Currency, error) {
 			Name:  name,
 			Price: lastPrice,
 			Icon:  icon,
-			En:    en, // اضافه کردن en از goldDetails
+			En:    en,
 		})
 	}
 	return goldData, nil
 }
-
 // Get current time in Jalali format
 func getJalaliTime() string {
 	loc, _ := time.LoadLocation("Asia/Tehran")
