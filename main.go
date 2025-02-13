@@ -39,10 +39,10 @@ var goldDetails = map[string]struct {
 	Name string
 	En   string
 }{
-	"abshodeh": {"https://platform.tgju.org/files/images/gold-bar-1622253729.png", "مثقال طلا", "Gold Mithqal"},
-	"18ayar":   {"https://platform.tgju.org/files/images/gold-bar-1-1622253841.png", "طلا 18 عیار", "18 Karat Gold"},
-	"sekkeh":   {"https://platform.tgju.org/files/images/gold-1697963730.png", "سکه امامی", "Emami Coin"},
-	"bahar":    {"https://platform.tgju.org/files/images/gold-1-1697963918.png", "سکه بهار آزادی", "Bahar Azadi Coin"},
+	"abshodeh": {"https://platform.tgju.org/files/images/gold-bar-1622253729.png", "مثقال طلا", "Mithqal"},
+	"18ayar":   {"https://platform.tgju.org/files/images/gold-bar-1-1622253841.png", "طلا 18 عیار", "18 Karat"},
+	"sekkeh":   {"https://platform.tgju.org/files/images/gold-1697963730.png", "سکه امامی", "Emami"},
+	"bahar":    {"https://platform.tgju.org/files/images/gold-1-1697963918.png", "سکه بهار آزادی", "Bahar Azadi"},
 	"nim":      {"https://platform.tgju.org/files/images/money-1697964123.png", "نیم سکه", "Half Coin"},
 	"rob":      {"https://platform.tgju.org/files/images/revenue-1697964369.png", "ربع سکه", "Quarter Coin"},
 	"sek":      {"https://platform.tgju.org/files/images/parsian-coin-1697964860.png", "سکه گرمی", "Gram Coin"},
