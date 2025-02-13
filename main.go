@@ -156,11 +156,6 @@ func fetchGoldData() ([]Currency, error) {
 			lastPrice = prices[0].(map[string]interface{})["price"].(float64)
 		}
 
-		// اگر کد sek بود، آن را به gram تغییر بده (بخاطر همنام بودن ی ارز دیگه)
-		if code == "sek" {
-			code = "gram"
-		}
-
 		// گرفتن اطلاعات از `goldDetails`
 		details, exists := goldDetails[code]
 		icon := ""
@@ -171,6 +166,12 @@ func fetchGoldData() ([]Currency, error) {
 			name = details.Name
 			en = details.En
 		}
+		
+		// اگر کد sek بود، آن را به gram تغییر بده (بخاطر همنام بودن ی ارز دیگه)
+		if code == "sek" {
+			code = "gram"
+		}
+		
 
 		goldData = append(goldData, Currency{
 			Code:  code,
