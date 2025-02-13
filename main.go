@@ -24,6 +24,7 @@ type Currency struct {
 	Name  string  `json:"name"`
 	Price float64 `json:"price"`
 	Icon  string  `json:"icon"`
+	En    string  `json:"en"` // اضافه شده
 }
 
 // Final output struct with update time
@@ -32,22 +33,29 @@ type FinalOutput struct {
 	Currencies []Currency `json:"currencies"` // تغییر به آرایه
 }
 
-// اطلاعات دستی برای آیکون طلاها
+// اطلاعات دستی برای آیکون طلاها و اطلاعات اضافی
 var goldDetails = map[string]struct {
 	Icon string
+	Name string
+	En   string
 }{
-	"abshodeh": {"https://platform.tgju.org/files/images/gold-bar-1622253729.png"},
-	"18ayar":   {"https://platform.tgju.org/files/images/gold-bar-1-1622253841.png"},
-	"sekkeh":   {"https://platform.tgju.org/files/images/gold-1697963730.png"},
-	"bahar":    {"https://platform.tgju.org/files/images/gold-1-1697963918.png"},
-	"nim":      {"https://platform.tgju.org/files/images/money-1697964123.png"},
-	"rob":      {"https://platform.tgju.org/files/images/revenue-1697964369.png"},
-	"sek":      {"https://platform.tgju.org/files/images/parsian-coin-1697964860.png"},
-	"usd_xau":  {"https://platform.tgju.org/files/images/gold-1-1622253769.png"},
+	"abshodeh": {"https://platform.tgju.org/files/images/gold-bar-1622253729.png", "مثقال طلا", "Gold Mithqal"},
+	"18ayar":   {"https://platform.tgju.org/files/images/gold-bar-1-1622253841.png", "طلا 18 عیار", "18 Karat Gold"},
+	"sekkeh":   {"https://platform.tgju.org/files/images/gold-1697963730.png", "سکه امامی", "Emami Coin"},
+	"bahar":    {"https://platform.tgju.org/files/images/gold-1-1697963918.png", "سکه بهار آزادی", "Bahar Azadi Coin"},
+	"nim":      {"https://platform.tgju.org/files/images/money-1697964123.png", "نیم سکه", "Half Coin"},
+	"rob":      {"https://platform.tgju.org/files/images/revenue-1697964369.png", "ربع سکه", "Quarter Coin"},
+	"sek":      {"https://platform.tgju.org/files/images/parsian-coin-1697964860.png", "سکه گرمی", "Gram Coin"},
+	"usd_xau":  {"https://platform.tgju.org/files/images/gold-1-1622253769.png", "انس طلا", "USD Gold"},
 }
 
 // Fetch data from API 1 (Currency Prices)
 func fetchDataAPI1() ([]Currency, error) {
+	enMap, err := loadEnData()
+	if err != nil {
+		return nil, err
+	}
+
 	data := map[string]string{"lang": "fa"}
 	body, err := json.Marshal(data)
 	if err != nil {
@@ -71,14 +79,12 @@ func fetchDataAPI1() ([]Currency, error) {
 		return nil, fmt.Errorf("failed to fetch data: %v", resp.StatusCode)
 	}
 
-	// دیکد کردن JSON
 	var result map[string]interface{}
 	err = json.NewDecoder(resp.Body).Decode(&result)
 	if err != nil {
 		return nil, err
 	}
 
-	// استخراج داده‌های مربوط به ارزها
 	var currencies []Currency
 	if arzData, ok := result["arz"].([]interface{}); ok {
 		for _, item := range arzData {
@@ -87,10 +93,20 @@ func fetchDataAPI1() ([]Currency, error) {
 			name := itemData["name"].(string)
 			icon := fmt.Sprintf("https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/%s.svg", itemData["flag"].(string))
 
-			// گرفتن قیمت آخر
+			// اگر اسم کشور "-" داشت، از لیست حذفش می‌کنیم
+			if strings.Contains(code, "-") {
+				continue
+			}
+
 			var price float64
 			if prices, ok := itemData["price"].([]interface{}); ok && len(prices) > 0 {
 				price = prices[0].(map[string]interface{})["price"].(float64)
+			}
+
+			// اضافه کردن en از فایل
+			en, exists := enMap[itemData["flag"].(string)] // استفاده از flag به جای code
+			if !exists {
+				en = name // اگر در فایل نبود، اسم رو قرار می‌دهیم
 			}
 
 			currencies = append(currencies, Currency{
@@ -98,6 +114,7 @@ func fetchDataAPI1() ([]Currency, error) {
 				Name:  name,
 				Price: price,
 				Icon:  icon,
+				En:    en,
 			})
 		}
 	}
@@ -133,25 +150,29 @@ func fetchGoldData() ([]Currency, error) {
 		goldMap := item.(map[string]interface{})
 		code := goldMap["slug"].(string)
 
-		// گرفتن آخرین قیمت از آرایه قیمت‌ها
 		prices := goldMap["price"].([]interface{})
 		lastPrice := 0.0
 		if len(prices) > 0 {
 			lastPrice = prices[0].(map[string]interface{})["price"].(float64)
 		}
 
-		// تنظیم اطلاعات از `goldDetails`
+		// گرفتن اطلاعات از `goldDetails`
 		details, exists := goldDetails[code]
 		icon := ""
+		name := ""
+		en := ""
 		if exists {
 			icon = details.Icon
+			name = details.Name
+			en = details.En
 		}
 
 		goldData = append(goldData, Currency{
 			Code:  code,
-			Name:  goldMap["name"].(string),
+			Name:  name,
 			Price: lastPrice,
 			Icon:  icon,
+			En:    en, // اضافه کردن en از goldDetails
 		})
 	}
 	return goldData, nil
@@ -163,6 +184,31 @@ func getJalaliTime() string {
 	now := time.Now().In(loc)
 	jalaliDate := ptime.New(now)
 	return fmt.Sprintf("%04d/%02d/%02d, %02d:%02d", jalaliDate.Year(), jalaliDate.Month(), jalaliDate.Day(), now.Hour(), now.Minute())
+}
+
+// Load the English names from the currencies.json file
+func loadEnData() (map[string]string, error) {
+	var enData []struct {
+		Country string `json:"country"`
+		En      string `json:"en"`
+	}
+
+	data, err := ioutil.ReadFile("currencies.json")
+	if err != nil {
+		return nil, err
+	}
+
+	err = json.Unmarshal(data, &enData)
+	if err != nil {
+		return nil, err
+	}
+
+	enMap := make(map[string]string)
+	for _, item := range enData {
+		enMap[item.Country] = item.En
+	}
+
+	return enMap, nil
 }
 
 // Process data and save to JSON
