@@ -14,22 +14,22 @@ import (
 )
 
 const (
-	api1URL = "https://admin.alanchand.com/api/arz"
-	goldURL = "https://admin.alanchand.com/api/gold"
+	api1URL  = "https://admin.alanchand.com/api/arz"
+	goldURL  = "https://admin.alanchand.com/api/gold"
 )
 
 // Currency struct for storing price details
 type Currency struct {
-	Code  string            `json:"code"`
-	Name  string            `json:"name"`
-	Price float64           `json:"price"`
-	Icon  string            `json:"icon"`
+	Code  string  `json:"code"`
+	Name  string  `json:"name"`
+	Price float64 `json:"price"`
+	Icon  string  `json:"icon"`
 }
 
 // Final output struct with update time
 type FinalOutput struct {
-	Date       string              `json:"date"`
-	Currencies map[string]Currency `json:"currencies"`
+	Date       string    `json:"date"`
+	Currencies []Currency `json:"currencies"` // تغییر به آرایه
 }
 
 // اطلاعات دستی برای آیکون طلاها
@@ -47,7 +47,7 @@ var goldDetails = map[string]struct {
 }
 
 // Fetch data from API 1 (Currency Prices)
-func fetchDataAPI1() (map[string]Currency, error) {
+func fetchDataAPI1() ([]Currency, error) {
 	data := map[string]string{"lang": "fa"}
 	body, err := json.Marshal(data)
 	if err != nil {
@@ -79,7 +79,7 @@ func fetchDataAPI1() (map[string]Currency, error) {
 	}
 
 	// استخراج داده‌های مربوط به ارزها
-	currencies := make(map[string]Currency)
+	var currencies []Currency
 	if arzData, ok := result["arz"].([]interface{}); ok {
 		for _, item := range arzData {
 			itemData := item.(map[string]interface{})
@@ -93,12 +93,12 @@ func fetchDataAPI1() (map[string]Currency, error) {
 				price = prices[0].(map[string]interface{})["price"].(float64)
 			}
 
-			currencies[code] = Currency{
+			currencies = append(currencies, Currency{
 				Code:  code,
-				Name: name,
+				Name:  name,
 				Price: price,
 				Icon:  icon,
-			}
+			})
 		}
 	}
 
@@ -106,7 +106,7 @@ func fetchDataAPI1() (map[string]Currency, error) {
 }
 
 // Fetch data from Gold API
-func fetchGoldData() (map[string]Currency, error) {
+func fetchGoldData() ([]Currency, error) {
 	reqBody := `{"lang": "fa"}`
 	req, err := http.NewRequest("POST", goldURL, strings.NewReader(reqBody))
 	if err != nil {
@@ -127,7 +127,7 @@ func fetchGoldData() (map[string]Currency, error) {
 	}
 
 	goldItems := result["gold"].([]interface{})
-	goldData := make(map[string]Currency)
+	var goldData []Currency
 
 	for _, item := range goldItems {
 		goldMap := item.(map[string]interface{})
@@ -147,12 +147,12 @@ func fetchGoldData() (map[string]Currency, error) {
 			icon = details.Icon
 		}
 
-		goldData[code] = Currency{
+		goldData = append(goldData, Currency{
 			Code:  code,
 			Name:  goldMap["name"].(string),
 			Price: lastPrice,
 			Icon:  icon,
-		}
+		})
 	}
 	return goldData, nil
 }
@@ -162,16 +162,13 @@ func getJalaliTime() string {
 	loc, _ := time.LoadLocation("Asia/Tehran")
 	now := time.Now().In(loc)
 	jalaliDate := ptime.New(now)
-	return fmt.Sprintf("%04d/%02d/%02d, %02d:%02d",
-		jalaliDate.Year(), jalaliDate.Month(), jalaliDate.Day(),
-		now.Hour(), now.Minute(),
-	)
+	return fmt.Sprintf("%04d/%02d/%02d, %02d:%02d", jalaliDate.Year(), jalaliDate.Month(), jalaliDate.Day(), now.Hour(), now.Minute())
 }
 
 // Process data and save to JSON
 func processAndSaveData() error {
 	var wg sync.WaitGroup
-	var api1Data, goldData map[string]Currency
+	var api1Data, goldData []Currency
 	var err1, errGold error
 
 	wg.Add(2)
@@ -195,20 +192,10 @@ func processAndSaveData() error {
 		fmt.Println("Error fetching gold data:", errGold)
 	}
 
-	finalData := make(map[string]Currency)
-
 	// ترکیب ارزها و طلاها
-	if api1Data != nil {
-		for code, data := range api1Data {
-			finalData[code] = data
-		}
-	}
-
-	if goldData != nil {
-		for code, data := range goldData {
-			finalData[code] = data
-		}
-	}
+	var finalData []Currency
+	finalData = append(finalData, api1Data...)
+	finalData = append(finalData, goldData...)
 
 	// ایجاد خروجی نهایی
 	output := FinalOutput{
