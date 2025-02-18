@@ -1,5 +1,5 @@
 {
-  "date": "1403/11/30, 14:21",
+  "date": "1403/11/30, 14:37",
   "currencies": [
     {
       "code": "usd",
@@ -25,7 +25,7 @@
     {
       "code": "gbp",
       "name": "پوند انگلستان",
-      "price": 115500,
+      "price": 115450,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/gb.svg",
       "en": "British pound"
     },
@@ -81,7 +81,7 @@
     {
       "code": "sek",
       "name": "کرون سوئد",
-      "price": 8640,
+      "price": 8630,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/se.svg",
       "en": "Swedish krona"
     },
@@ -130,14 +130,14 @@
     {
       "code": "jpy",
       "name": "ین ژاپن",
-      "price": 60950,
+      "price": 61000,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/jp.svg",
       "en": "Japanese yen"
     },
     {
       "code": "chf",
       "name": "فرانک سوئیس",
-      "price": 102750,
+      "price": 102700,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/ch.svg",
       "en": "Swiss franc"
     },
@@ -158,7 +158,7 @@
     {
       "code": "brl",
       "name": "رئال برزیل",
-      "price": 16210,
+      "price": 16220,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/br.svg",
       "en": "Brazilian real"
     },
@@ -179,7 +179,7 @@
     {
       "code": "nok",
       "name": "کرون نروژ",
-      "price": 8310,
+      "price": 8320,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/no.svg",
       "en": "Norwegian krone"
     },
@@ -270,14 +270,14 @@
     {
       "code": "abshodeh",
       "name": "مثقال طلا",
-      "price": 28360000,
+      "price": 28480000,
       "icon": "https://platform.tgju.org/files/images/gold-bar-1622253729.png",
       "en": "Mithqal"
     },
     {
       "code": "18ayar",
       "name": "طلا 18 عیار",
-      "price": 6547860,
+      "price": 6574170,
       "icon": "https://platform.tgju.org/files/images/gold-bar-1-1622253841.png",
       "en": "18 Karat"
     },
@@ -291,14 +291,14 @@
     {
       "code": "bahar",
       "name": "سکه بهار آزادی",
-      "price": 70190000,
+      "price": 70210000,
       "icon": "https://platform.tgju.org/files/images/gold-1-1697963918.png",
       "en": "Bahar Azadi"
     },
     {
       "code": "nim",
       "name": "نیم سکه",
-      "price": 41300000,
+      "price": 41200000,
       "icon": "https://platform.tgju.org/files/images/money-1697964123.png",
       "en": "Half Coin"
     },
@@ -319,7 +319,7 @@
     {
       "code": "usd_xau",
       "name": "انس طلا",
-      "price": 2908.58,
+      "price": 2911.3,
       "icon": "https://platform.tgju.org/files/images/gold-1-1622253769.png",
       "en": "USD Gold"
     }
