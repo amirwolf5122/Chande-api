@@ -1,5 +1,5 @@
 {
-  "date": "1403/12/09, 16:23",
+  "date": "1403/12/09, 16:48",
   "currencies": [
     {
       "code": "usd",
@@ -39,7 +39,7 @@
     {
       "code": "cad",
       "name": "دلار کانادا",
-      "price": 65250,
+      "price": 65200,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/ca.svg",
       "en": "Canadian dollar"
     },
@@ -109,7 +109,7 @@
     {
       "code": "gel",
       "name": "لاری گرجستان",
-      "price": 33230,
+      "price": 33250,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/ge.svg",
       "en": "Georgian lari"
     },
@@ -137,7 +137,7 @@
     {
       "code": "chf",
       "name": "فرانک سوئیس",
-      "price": 104200,
+      "price": 104250,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/ch.svg",
       "en": "Swiss franc"
     },
@@ -158,7 +158,7 @@
     {
       "code": "brl",
       "name": "رئال برزیل",
-      "price": 16170,
+      "price": 16150,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/br.svg",
       "en": "Brazilian real"
     },
@@ -200,7 +200,7 @@
     {
       "code": "pkr",
       "name": "روپیه پاکستان",
-      "price": 334,
+      "price": 333,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/pk.svg",
       "en": "Pakistani rupee"
     },
@@ -270,14 +270,14 @@
     {
       "code": "abshodeh",
       "name": "مثقال طلا",
-      "price": 28700000,
+      "price": 28650000,
       "icon": "https://platform.tgju.org/files/images/gold-bar-1622253729.png",
       "en": "Mithqal"
     },
     {
       "code": "18ayar",
       "name": "طلا 18 عیار",
-      "price": 6624500,
+      "price": 6612720,
       "icon": "https://platform.tgju.org/files/images/gold-bar-1-1622253841.png",
       "en": "18 Karat"
     },
@@ -291,7 +291,7 @@
     {
       "code": "bahar",
       "name": "سکه بهار آزادی",
-      "price": 71980000,
+      "price": 71990000,
       "icon": "https://platform.tgju.org/files/images/gold-1-1697963918.png",
       "en": "Bahar Azadi"
     },
@@ -319,7 +319,7 @@
     {
       "code": "usd_xau",
       "name": "انس طلا",
-      "price": 2886.07,
+      "price": 2887.01,
       "icon": "https://platform.tgju.org/files/images/gold-1-1622253769.png",
       "en": "USD Gold"
     }
