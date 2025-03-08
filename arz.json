@@ -1,5 +1,5 @@
 {
-  "date": "1403/12/18, 15:21",
+  "date": "1403/12/18, 15:41",
   "currencies": [
     {
       "code": "usd",
@@ -46,7 +46,7 @@
     {
       "code": "cny",
       "name": "یوان چین",
-      "price": 12810,
+      "price": 12800,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/cn.svg",
       "en": "Chinese yuan"
     },
@@ -74,7 +74,7 @@
     {
       "code": "iqd",
       "name": "دینار عراق",
-      "price": 5980,
+      "price": 5990,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/iq.svg",
       "en": "Iraqi dinar"
     },
@@ -172,7 +172,7 @@
     {
       "code": "kwd",
       "name": "دینار کویت",
-      "price": 298850,
+      "price": 298950,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/kw.svg",
       "en": "Kuwaiti dinar"
     },
@@ -228,7 +228,7 @@
     {
       "code": "syp",
       "name": "پوند سوریه",
-      "price": 709,
+      "price": 710,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/sy.svg",
       "en": "Syrian pound"
     },
@@ -263,28 +263,28 @@
     {
       "code": "tmt",
       "name": "منات ترکمنستان",
-      "price": 26290,
+      "price": 26300,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/tm.svg",
       "en": "Turkmen manat"
     },
     {
       "code": "abshodeh",
       "name": "مثقال طلا",
-      "price": 28530000,
+      "price": 28510000,
       "icon": "https://platform.tgju.org/files/images/gold-bar-1622253729.png",
       "en": "Mithqal"
     },
     {
       "code": "18ayar",
       "name": "طلا 18 عیار",
-      "price": 6585250,
+      "price": 6580640,
       "icon": "https://platform.tgju.org/files/images/gold-bar-1-1622253841.png",
       "en": "18 Karat"
     },
     {
       "code": "sekkeh",
       "name": "سکه امامی",
-      "price": 76000000,
+      "price": 76100000,
       "icon": "https://platform.tgju.org/files/images/gold-1697963730.png",
       "en": "Emami"
     },
