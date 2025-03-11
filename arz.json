@@ -1,5 +1,5 @@
 {
-  "date": "1403/12/21, 03:21",
+  "date": "1403/12/21, 04:12",
   "currencies": [
     {
       "code": "usd",
@@ -11,7 +11,7 @@
     {
       "code": "eur",
       "name": "یورو",
-      "price": 101100,
+      "price": 101150,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/eu.svg",
       "en": "Euro"
     },
@@ -67,7 +67,7 @@
     {
       "code": "rub",
       "name": "روبل روسیه",
-      "price": 1055,
+      "price": 1060,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/ru.svg",
       "en": "Russian ruble"
     },
@@ -88,7 +88,7 @@
     {
       "code": "thb",
       "name": "بات تایلند",
-      "price": 2765,
+      "price": 2760,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/th.svg",
       "en": "Thai baht"
     },
@@ -130,14 +130,14 @@
     {
       "code": "jpy",
       "name": "ین ژاپن",
-      "price": 63500,
+      "price": 63550,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/jp.svg",
       "en": "Japanese yen"
     },
     {
       "code": "chf",
       "name": "فرانک سوئیس",
-      "price": 106250,
+      "price": 106300,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/ch.svg",
       "en": "Swiss franc"
     },
@@ -151,14 +151,14 @@
     {
       "code": "sgd",
       "name": "دلار سنگاپور",
-      "price": 70150,
+      "price": 70100,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/sg.svg",
       "en": "Singapore dollar"
     },
     {
       "code": "brl",
       "name": "رئال برزیل",
-      "price": 16140,
+      "price": 16130,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/br.svg",
       "en": "Brazilian real"
     },
@@ -319,7 +319,7 @@
     {
       "code": "usd_xau",
       "name": "انس طلا",
-      "price": 2883.39,
+      "price": 2887.44,
       "icon": "https://platform.tgju.org/files/images/gold-1-1622253769.png",
       "en": "USD Gold"
     }
