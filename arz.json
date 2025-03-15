@@ -1,38 +1,38 @@
 {
-  "date": "1403/12/25, 16:19",
+  "date": "1403/12/25, 16:35",
   "currencies": [
     {
       "code": "usd",
       "name": "دلار آمریکا",
-      "price": 91800,
+      "price": 91750,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/us.svg",
       "en": "US dollar"
     },
     {
       "code": "eur",
       "name": "یورو",
-      "price": 99850,
+      "price": 99800,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/eu.svg",
       "en": "Euro"
     },
     {
       "code": "try",
       "name": "لیر ترکیه",
-      "price": 2540,
+      "price": 2535,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/tr.svg",
       "en": "Turkish lira"
     },
     {
       "code": "gbp",
       "name": "پوند انگلستان",
-      "price": 117750,
+      "price": 117650,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/gb.svg",
       "en": "British pound"
     },
     {
       "code": "aed",
       "name": "درهم امارات",
-      "price": 25140,
+      "price": 25120,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/ae.svg",
       "en": "UAE dirham"
     },
@@ -46,7 +46,7 @@
     {
       "code": "cny",
       "name": "یوان چین",
-      "price": 12790,
+      "price": 12780,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/cn.svg",
       "en": "Chinese yuan"
     },
@@ -60,7 +60,7 @@
     {
       "code": "myr",
       "name": "رینگیت مالزی",
-      "price": 20680,
+      "price": 20670,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/my.svg",
       "en": "Malaysian Ringgit"
     },
@@ -81,7 +81,7 @@
     {
       "code": "sek",
       "name": "کرون سوئد",
-      "price": 9070,
+      "price": 9060,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/se.svg",
       "en": "Swedish krona"
     },
@@ -95,28 +95,28 @@
     {
       "code": "amd",
       "name": "درام ارمنستان",
-      "price": 23370,
+      "price": 23360,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/am.svg",
       "en": "Armenian dram"
     },
     {
       "code": "azn",
       "name": "مانات آذربایجان",
-      "price": 54100,
+      "price": 54050,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/az.svg",
       "en": "Azerbaijani manat"
     },
     {
       "code": "gel",
       "name": "لاری گرجستان",
-      "price": 33130,
+      "price": 33110,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/ge.svg",
       "en": "Georgian lari"
     },
     {
       "code": "sar",
       "name": "ریال عربستان",
-      "price": 24520,
+      "price": 24510,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/sa.svg",
       "en": "Saudi riyal"
     },
@@ -130,14 +130,14 @@
     {
       "code": "jpy",
       "name": "ین ژاپن",
-      "price": 61900,
+      "price": 61850,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/jp.svg",
       "en": "Japanese yen"
     },
     {
       "code": "chf",
       "name": "فرانک سوئیس",
-      "price": 103900,
+      "price": 103850,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/ch.svg",
       "en": "Swiss franc"
     },
@@ -151,28 +151,28 @@
     {
       "code": "sgd",
       "name": "دلار سنگاپور",
-      "price": 68900,
+      "price": 68850,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/sg.svg",
       "en": "Singapore dollar"
     },
     {
       "code": "brl",
       "name": "رئال برزیل",
-      "price": 15890,
+      "price": 15880,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/br.svg",
       "en": "Brazilian real"
     },
     {
       "code": "dkk",
       "name": "کرون دانمارک",
-      "price": 13410,
+      "price": 13400,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/dk.svg",
       "en": "Danish krone"
     },
     {
       "code": "kwd",
       "name": "دینار کویت",
-      "price": 298400,
+      "price": 298250,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/kw.svg",
       "en": "Kuwaiti dinar"
     },
@@ -186,14 +186,14 @@
     {
       "code": "nzd",
       "name": "دلار نیوزلند",
-      "price": 52800,
+      "price": 52750,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/nz.svg",
       "en": "New Zealand dollar"
     },
     {
       "code": "omr",
       "name": "ریال عمان",
-      "price": 239150,
+      "price": 239000,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/om.svg",
       "en": "Omani rial"
     },
@@ -214,7 +214,7 @@
     {
       "code": "bhd",
       "name": "دینار بحرین",
-      "price": 244550,
+      "price": 244400,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/bh.svg",
       "en": "Bhutanese ngultrum"
     },
@@ -228,21 +228,21 @@
     {
       "code": "syp",
       "name": "پوند سوریه",
-      "price": 710,
+      "price": 709,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/sy.svg",
       "en": "Syrian pound"
     },
     {
       "code": "qar",
       "name": "ریال قطر",
-      "price": 25260,
+      "price": 25250,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/qa.svg",
       "en": "Qatari riyal"
     },
     {
       "code": "hkd",
       "name": "دلار هنگ کنگ",
-      "price": 11830,
+      "price": 11820,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/hk.svg",
       "en": "Hong Kong dollar"
     },
@@ -263,21 +263,21 @@
     {
       "code": "tmt",
       "name": "منات ترکمنستان",
-      "price": 26270,
+      "price": 26260,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/tm.svg",
       "en": "Turkmen manat"
     },
     {
       "code": "abshodeh",
       "name": "مثقال طلا",
-      "price": 29630000,
+      "price": 29620000,
       "icon": "https://platform.tgju.org/files/images/gold-bar-1622253729.png",
       "en": "Mithqal"
     },
     {
       "code": "18ayar",
       "name": "طلا 18 عیار",
-      "price": 6839190,
+      "price": 6836880,
       "icon": "https://platform.tgju.org/files/images/gold-bar-1-1622253841.png",
       "en": "18 Karat"
     },
