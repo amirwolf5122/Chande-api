@@ -1,5 +1,5 @@
 {
-  "date": "1404/01/11, 09:21",
+  "date": "1404/01/11, 09:43",
   "currencies": [
     {
       "code": "usd",
@@ -11,7 +11,7 @@
     {
       "code": "eur",
       "name": "یورو",
-      "price": 112500,
+      "price": 112550,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/eu.svg",
       "en": "Euro"
     },
@@ -53,7 +53,7 @@
     {
       "code": "aud",
       "name": "دلار استرالیا",
-      "price": 65350,
+      "price": 65400,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/au.svg",
       "en": "Australian dollar"
     },
@@ -88,7 +88,7 @@
     {
       "code": "thb",
       "name": "بات تایلند",
-      "price": 3065,
+      "price": 3070,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/th.svg",
       "en": "Thai baht"
     },
@@ -130,7 +130,7 @@
     {
       "code": "jpy",
       "name": "ین ژاپن",
-      "price": 69700,
+      "price": 69750,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/jp.svg",
       "en": "Japanese yen"
     },
@@ -151,7 +151,7 @@
     {
       "code": "sgd",
       "name": "دلار سنگاپور",
-      "price": 77550,
+      "price": 77600,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/sg.svg",
       "en": "Singapore dollar"
     },
@@ -172,7 +172,7 @@
     {
       "code": "kwd",
       "name": "دینار کویت",
-      "price": 337750,
+      "price": 337700,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/kw.svg",
       "en": "Kuwaiti dinar"
     },
@@ -186,7 +186,7 @@
     {
       "code": "nzd",
       "name": "دلار نیوزلند",
-      "price": 59400,
+      "price": 59450,
       "icon": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/nz.svg",
       "en": "New Zealand dollar"
     },
@@ -270,14 +270,14 @@
     {
       "code": "abshodeh",
       "name": "مثقال طلا",
-      "price": 35770000,
+      "price": 36450000,
       "icon": "https://platform.tgju.org/files/images/gold-bar-1622253729.png",
       "en": "Mithqal"
     },
     {
       "code": "18ayar",
       "name": "طلا 18 عیار",
-      "price": 8256610,
+      "price": 8413590,
       "icon": "https://platform.tgju.org/files/images/gold-bar-1-1622253841.png",
       "en": "18 Karat"
     },
@@ -319,7 +319,7 @@
     {
       "code": "usd_xau",
       "name": "انس طلا",
-      "price": 3113.61,
+      "price": 3116.86,
       "icon": "https://platform.tgju.org/files/images/gold-1-1622253769.png",
       "en": "USD Gold"
     }
