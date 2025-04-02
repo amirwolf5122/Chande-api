@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"strings"
+	"regexp"
 	"sync"
 	"time"
 
@@ -32,6 +33,15 @@ type FinalOutput struct {
 	Date       string    `json:"date"`
 	Currencies []Currency `json:"currencies"` // تغییر به آرایه
 }
+
+// تبدیل متن به Title Case
+func toTitleCase(s string) string {
+	re := regexp.MustCompile(`\b[a-z]\w*\b`)
+	return re.ReplaceAllStringFunc(s, func(word string) string {
+		return strings.ToUpper(string(word[0])) + word[1:]
+	})
+}
+
 
 // اطلاعات دستی برای آیکون طلاها و اطلاعات اضافی
 var goldDetails = map[string]struct {
@@ -91,7 +101,7 @@ func fetchDataAPI1() ([]Currency, error) {
 			itemData := item.(map[string]interface{})
 			code := itemData["slug"].(string)
 			name := itemData["name"].(string)
-			icon := fmt.Sprintf("https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/%s.svg", itemData["flag"].(string))
+			icon := fmt.Sprintf("https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/%s.svg", itemData["flag"].(string))
 
 			// اگر اسم کشور "-" داشت، از لیست حذفش می‌کنیم
 			if strings.Contains(code, "-") {
@@ -108,7 +118,9 @@ func fetchDataAPI1() ([]Currency, error) {
 			if !exists {
 				en = name // اگر در فایل نبود، اسم رو قرار می‌دهیم
 			}
-
+			
+			en = toTitleCase(en)
+			
 			currencies = append(currencies, Currency{
 				Code:  code,
 				Name:  name,
@@ -164,7 +176,7 @@ func fetchGoldData() ([]Currency, error) {
 		if exists {
 			icon = details.Icon
 			name = details.Name
-			en = details.En
+			en = toTitleCase(details.En)
 		}
 		
 		// اگر کد sek بود، آن را به gram تغییر بده (بخاطر همنام بودن ی ارز دیگه)
