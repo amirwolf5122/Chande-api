@@ -101,9 +101,13 @@ func fetchDataAPI1() ([]Currency, error) {
 			itemData := item.(map[string]interface{})
 			code := itemData["slug"].(string)
 			name := itemData["name"].(string)
-			icon := fmt.Sprintf("https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/%s.svg", itemData["flag"].(string))
+			iconFlag := itemData["flag"].(string)
+			if iconFlag == "eu" {
+				iconFlag = "european_union"
+			}
+			icon := fmt.Sprintf("https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/%s.svg", iconFlag)
 
-			// اگر اسم کشور "-" داشت، از لیست حذفش می‌کنیم
+			// حذف دلار هرات و ...
 			if strings.Contains(code, "-") {
 				continue
 			}
