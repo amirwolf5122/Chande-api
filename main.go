@@ -218,26 +218,19 @@ func fetchCryptoData() ([]Currency, error) {
 	}
 	defer resp.Body.Close()
 
-	var result map[string]interface{}
-	if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
+	var cryptoItems []map[string]interface{}
+	if err := json.NewDecoder(resp.Body).Decode(&cryptoItems); err != nil {
 		return nil, err
-	}
-
-	cryptoItems, ok := result["crypto"].([]interface{})
-	if !ok {
-		return nil, fmt.Errorf("crypto data not found")
 	}
 
 	var cryptoData []Currency
 	for _, item := range cryptoItems {
-		data := item.(map[string]interface{})
-		code := data["slug"].(string)
-		name := data["fname"].(string)
-		price := data["price"].(float64)  // USD
-		toman := data["toman"].(float64) 
-		en := toTitleCase(data["name"].(string))
+		code := item["slug"].(string)
+		name := item["fname"].(string)
+		price := item["price"].(float64)  // قیمت دلار
+		toman := item["toman"].(float64) // قیمت تومان
+		en := toTitleCase(item["name"].(string))
 
-		
 		if code == "usdt" {
 			price = toman
 		}
@@ -247,7 +240,7 @@ func fetchCryptoData() ([]Currency, error) {
 		cryptoData = append(cryptoData, Currency{
 			Code:  code,
 			Name:  name,
-			Price: price,
+			Price: price,  // قیمت دلاری (به جز تتر که تومان هست)
 			Icon:  icon,
 			En:    en,
 		})
