@@ -231,7 +231,7 @@ func fetchCryptoData() ([]Currency, error) {
 		toman := item["toman"].(float64) // قیمت تومان
 		en := toTitleCase(item["name"].(string))
 
-		if code == "usdt" {
+		if code == "usdt" || code == "dai" {
 			price = toman
 		}
 
