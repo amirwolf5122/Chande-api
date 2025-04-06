@@ -15,8 +15,9 @@ import (
 )
 
 const (
-	api1URL  = "https://admin.alanchand.com/api/arz"
+	currencyURL  = "https://admin.alanchand.com/api/arz"
 	goldURL  = "https://admin.alanchand.com/api/gold"
+	cryptoURL = "https://admin.alanchand.com/api/crypto"
 )
 
 // Currency struct for storing price details
@@ -59,8 +60,8 @@ var goldDetails = map[string]struct {
 	"usd_xau":  {"https://platform.tgju.org/files/images/gold-1-1622253769.png", "انس طلا", "USD Gold"},
 }
 
-// Fetch data from API 1 (Currency Prices)
-func fetchDataAPI1() ([]Currency, error) {
+// Fetch data from Currency API
+func fetchDataCurrency() ([]Currency, error) {
 	enMap, err := loadEnData()
 	if err != nil {
 		return nil, err
@@ -72,7 +73,7 @@ func fetchDataAPI1() ([]Currency, error) {
 		return nil, err
 	}
 
-	req, err := http.NewRequest("POST", api1URL, bytes.NewReader(body))
+	req, err := http.NewRequest("POST", currencyURL, bytes.NewReader(body))
 	if err != nil {
 		return nil, err
 	}
@@ -199,6 +200,62 @@ func fetchGoldData() ([]Currency, error) {
 	}
 	return goldData, nil
 }
+
+// Fetch data from Crypto API
+func fetchCryptoData() ([]Currency, error) {
+	reqBody := `{}`
+	req, err := http.NewRequest("POST", cryptoURL, strings.NewReader(reqBody))
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Set("Content-Type", "application/json")
+	req.Header.Set("Accept", "application/json, text/plain, */*")
+
+	client := &http.Client{}
+	resp, err := client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	defer resp.Body.Close()
+
+	var result map[string]interface{}
+	if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
+		return nil, err
+	}
+
+	cryptoItems, ok := result["crypto"].([]interface{})
+	if !ok {
+		return nil, fmt.Errorf("crypto data not found")
+	}
+
+	var cryptoData []Currency
+	for _, item := range cryptoItems {
+		data := item.(map[string]interface{})
+		code := data["slug"].(string)
+		name := data["fname"].(string)
+		price := data["price"].(float64)  // USD
+		toman := data["toman"].(float64) 
+		en := toTitleCase(data["name"].(string))
+
+		
+		if code == "usdt" {
+			price = toman
+		}
+
+		icon := fmt.Sprintf("https://alanchand.com/images/logo/crypto/%s.svg", strings.ToLower(code))
+
+		cryptoData = append(cryptoData, Currency{
+			Code:  code,
+			Name:  name,
+			Price: price,
+			Icon:  icon,
+			En:    en,
+		})
+	}
+
+	return cryptoData, nil
+}
+
 // Get current time in Jalali format
 func getJalaliTime() string {
 	loc, _ := time.LoadLocation("Asia/Tehran")
@@ -235,21 +292,26 @@ func loadEnData() (map[string]string, error) {
 // Process data and save to JSON
 func processAndSaveData() error {
 	var wg sync.WaitGroup
-	var api1Data, goldData []Currency
-	var err1, errGold error
+	var currencyData, goldData, cryptoData []Currency
+	var err1, errGold, errcrypto error
 
 	wg.Add(2)
 
 	go func() {
 		defer wg.Done()
-		api1Data, err1 = fetchDataAPI1()
+		currencyData, err1 = fetchDataCurrency()
 	}()
 
 	go func() {
 		defer wg.Done()
 		goldData, errGold = fetchGoldData()
 	}()
-
+	
+	go func() {
+		defer wg.Done()
+		cryptoData, errcrypto = fetchCryptoData()
+	}()
+	
 	wg.Wait()
 
 	if err1 != nil {
@@ -258,11 +320,15 @@ func processAndSaveData() error {
 	if errGold != nil {
 		fmt.Println("Error fetching gold data:", errGold)
 	}
-
-	// ترکیب ارزها و طلاها
+	if errcrypto != nil {
+		fmt.Println("Error fetching crypto data:", errcrypto)
+	}
+	
+	// ترکیب ارزها
 	var finalData []Currency
-	finalData = append(finalData, api1Data...)
+	finalData = append(finalData, currencyData...)
 	finalData = append(finalData, goldData...)
+	finalData = append(finalData, cryptoData...)
 
 	// ایجاد خروجی نهایی
 	output := FinalOutput{

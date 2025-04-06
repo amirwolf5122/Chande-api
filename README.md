@@ -1,14 +1,17 @@
 # **Chand-Api**
 
-این پروژه برای **[Chand?!](https://github.com/CertMusashi/Chand)** ساخته شده و وظیفه‌ی دریافت و به‌روزرسانی قیمت ارزها را دارد.
+This project is built for **[Chand?!](https://github.com/CertMusashi/Chand)** and is responsible for fetching and updating real-time currency prices.
 
-## **ویژگی‌ها**
-✅ قیمت لحظه‌ای ارزهای رایج و طلا 
+## **Features**  
 
-✅ به‌روزرسانی خودکار قیمت‌ها (هر 10 دقیقه)  
+✅ Real-time price updates for popular currencies, gold, and crypto-currencies.
 
-✅ ذخیره‌سازی بصورت JSON 
+✅ Automatic price updates (approximately every 10 minutes).
 
-## **منابع**  
-قیمت ارزها از API پروژه‌های زیر دریافت می‌شود:  
+✅ Data stored in a structured JSON format.
+
+
+## **Data Sources**  
+
+Currency prices are fetched from the following APIs:
 🔗 **[Alan Chand](https://alanchand.com/)**
