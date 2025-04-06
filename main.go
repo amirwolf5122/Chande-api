@@ -235,6 +235,12 @@ func fetchCryptoData() ([]Currency, error) {
 			price = toman
 		}
 
+		// btc price only to one decimal place
+		if code == "btc" {
+			priceStr := fmt.Sprintf("%.1f", price)
+			price, _ = strconv.ParseFloat(priceStr, 64)
+		}
+		
 		icon := fmt.Sprintf("https://alanchand.com/images/logo/crypto/%s.svg", strings.ToLower(code))
 
 		cryptoData = append(cryptoData, Currency{
