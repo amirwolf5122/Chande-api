@@ -1,5 +1,5 @@
 {
-  "date": "1404/01/17, 23:11",
+  "date": "1404/01/17, 23:17",
   "currencies": [
     {
       "code": "usd",
@@ -266,62 +266,6 @@
       "price": 30010,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/tm.svg",
       "en": "Turkmen Manat"
-    },
-    {
-      "code": "abshodeh",
-      "name": "مثقال طلا",
-      "price": 34660000,
-      "icon": "https://platform.tgju.org/files/images/gold-bar-1622253729.png",
-      "en": "Mithqal"
-    },
-    {
-      "code": "18ayar",
-      "name": "طلا 18 عیار",
-      "price": 8000370,
-      "icon": "https://platform.tgju.org/files/images/gold-bar-1-1622253841.png",
-      "en": "18 Karat"
-    },
-    {
-      "code": "sekkeh",
-      "name": "سکه امامی",
-      "price": 97300000,
-      "icon": "https://platform.tgju.org/files/images/gold-1697963730.png",
-      "en": "Emami"
-    },
-    {
-      "code": "bahar",
-      "name": "سکه بهار آزادی",
-      "price": 87100000,
-      "icon": "https://platform.tgju.org/files/images/gold-1-1697963918.png",
-      "en": "Bahar Azadi"
-    },
-    {
-      "code": "nim",
-      "name": "نیم سکه",
-      "price": 62000000,
-      "icon": "https://platform.tgju.org/files/images/money-1697964123.png",
-      "en": "Half Coin"
-    },
-    {
-      "code": "rob",
-      "name": "ربع سکه",
-      "price": 32500000,
-      "icon": "https://platform.tgju.org/files/images/revenue-1697964369.png",
-      "en": "Quarter Coin"
-    },
-    {
-      "code": "gram",
-      "name": "سکه گرمی",
-      "price": 10460000,
-      "icon": "https://platform.tgju.org/files/images/parsian-coin-1697964860.png",
-      "en": "Gram Coin"
-    },
-    {
-      "code": "usd_xau",
-      "name": "انس طلا",
-      "price": 3037.65,
-      "icon": "https://platform.tgju.org/files/images/gold-1-1622253769.png",
-      "en": "USD Gold"
     }
   ]
 }
