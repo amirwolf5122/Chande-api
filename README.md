@@ -1,17 +1,18 @@
-# **Chand-Api**
+# **Chande-Api**
 
-This project is built for **[Chand?!](https://github.com/CertMusashi/Chand)** and is responsible for fetching and updating real-time currency prices.
+This API is designed to provide real-time currency and price data for the **[Chande?!](https://github.com/CertMusashi/Chande)** app.
 
-## **Features**  
+## **Features**
 
-✅ Real-time price updates for popular currencies, gold, and crypto-currencies.
-
-✅ Automatic price updates (approximately every 10 minutes).
-
+✅ Real-time price updates for popular currencies, gold, and cryptocurrencies.  
+✅ Automatic price updates (approximately every 10 minutes).  
 ✅ Data stored in a structured JSON format.
 
+---
 
-## **Data Sources**  
+## **Data Sources**
 
-Currency prices are fetched from the following APIs:
-🔗 **[Alan Chand](https://alanchand.com/)**
+🔗 [Price Data](https://alanchand.com)  
+🔗 [Country Flags](https://github.com/HatScripts/circle-flags)
+
+All data is collected for educational and non-commercial use.
