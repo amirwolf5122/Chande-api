@@ -1,61 +1,110 @@
 {
-  "date": "1404/01/24, 15:22",
+  "date": "1404/01/24, 15:46",
   "currencies": [
     {
-      "code": "abshodeh",
-      "name": "مثقال طلا",
-      "price": 29050000,
-      "icon": "https://platform.tgju.org/files/images/gold-bar-1622253729.png",
-      "en": "Mithqal"
+      "code": "btc",
+      "name": "بیت کوین",
+      "price": 84548.6,
+      "icon": "https://alanchand.com/images/logo/crypto/btc.svg",
+      "en": "Bitcoin"
     },
     {
-      "code": "18ayar",
-      "name": "طلا 18 عیار",
-      "price": 6705300,
-      "icon": "https://platform.tgju.org/files/images/gold-bar-1-1622253841.png",
-      "en": "18 Karat"
+      "code": "eth",
+      "name": "اتریوم",
+      "price": 1604.7199707,
+      "icon": "https://alanchand.com/images/logo/crypto/eth.svg",
+      "en": "Ethereum"
     },
     {
-      "code": "sekkeh",
-      "name": "سکه امامی",
-      "price": 76300000,
-      "icon": "https://platform.tgju.org/files/images/gold-1697963730.png",
-      "en": "Emami"
+      "code": "xmr",
+      "name": "مونرو",
+      "price": 207.16000366,
+      "icon": "https://alanchand.com/images/logo/crypto/xmr.svg",
+      "en": "Monero"
     },
     {
-      "code": "bahar",
-      "name": "سکه بهار آزادی",
-      "price": 69500000,
-      "icon": "https://platform.tgju.org/files/images/gold-1-1697963918.png",
-      "en": "Bahar Azadi"
+      "code": "trx",
+      "name": "ترون",
+      "price": 0.24668001,
+      "icon": "https://alanchand.com/images/logo/crypto/trx.svg",
+      "en": "Tron"
     },
     {
-      "code": "nim",
-      "name": "نیم سکه",
-      "price": 51000000,
-      "icon": "https://platform.tgju.org/files/images/money-1697964123.png",
-      "en": "Half Coin"
+      "code": "usdt",
+      "name": "تتر",
+      "price": 86171,
+      "icon": "https://alanchand.com/images/logo/crypto/usdt.svg",
+      "en": "Tether"
     },
     {
-      "code": "rob",
-      "name": "ربع سکه",
-      "price": 27000000,
-      "icon": "https://platform.tgju.org/files/images/revenue-1697964369.png",
-      "en": "Quarter Coin"
+      "code": "bnb",
+      "name": "بایننس کوین",
+      "price": 587.76000977,
+      "icon": "https://alanchand.com/images/logo/crypto/bnb.svg",
+      "en": "Binance Coin"
     },
     {
-      "code": "gram",
-      "name": "سکه گرمی",
-      "price": 8750000,
-      "icon": "https://platform.tgju.org/files/images/parsian-coin-1697964860.png",
-      "en": "Gram Coin"
+      "code": "ltc",
+      "name": "لایت کوین",
+      "price": 79.12000275,
+      "icon": "https://alanchand.com/images/logo/crypto/ltc.svg",
+      "en": "Litecoin"
     },
     {
-      "code": "usd_xau",
-      "name": "انس طلا",
-      "price": 3238.82,
-      "icon": "https://platform.tgju.org/files/images/gold-1-1622253769.png",
-      "en": "USD Gold"
+      "code": "shib",
+      "name": "شیبا",
+      "price": 0.012299,
+      "icon": "https://alanchand.com/images/logo/crypto/shib.svg",
+      "en": "Shiba Ino"
+    },
+    {
+      "code": "ada",
+      "name": "کاردانو",
+      "price": 0.65380001,
+      "icon": "https://alanchand.com/images/logo/crypto/ada.svg",
+      "en": "Cardano"
+    },
+    {
+      "code": "bch",
+      "name": "بیت‌کوین‌کش",
+      "price": 347.38000488,
+      "icon": "https://alanchand.com/images/logo/crypto/bch.svg",
+      "en": "Bitcoin Cash"
+    },
+    {
+      "code": "dai",
+      "name": "دای",
+      "price": 86573,
+      "icon": "https://alanchand.com/images/logo/crypto/dai.svg",
+      "en": "Dai"
+    },
+    {
+      "code": "etc",
+      "name": "اتریوم کلاسیک",
+      "price": 15.2869997,
+      "icon": "https://alanchand.com/images/logo/crypto/etc.svg",
+      "en": "Eth Classic"
+    },
+    {
+      "code": "uni",
+      "name": "یونی‌سواپ",
+      "price": 5.42600012,
+      "icon": "https://alanchand.com/images/logo/crypto/uni.svg",
+      "en": "Uniswap"
+    },
+    {
+      "code": "doge",
+      "name": "دوج‌کوین",
+      "price": 0.16531999,
+      "icon": "https://alanchand.com/images/logo/crypto/doge.svg",
+      "en": "Dogecoin"
+    },
+    {
+      "code": "link",
+      "name": "چین‌لینک",
+      "price": 12.86299992,
+      "icon": "https://alanchand.com/images/logo/crypto/link.svg",
+      "en": "Chainlink"
     }
   ]
 }
