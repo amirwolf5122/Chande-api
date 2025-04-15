@@ -1,17 +1,17 @@
 {
-  "date": "1404/01/26, 11:44",
+  "date": "1404/01/26, 12:10",
   "currencies": [
     {
       "code": "usd",
       "name": "دلار آمریکا",
-      "price": 91200,
+      "price": 91300,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/us.svg",
       "en": "US Dollar"
     },
     {
       "code": "eur",
       "name": "یورو",
-      "price": 103450,
+      "price": 103600,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/european_union.svg",
       "en": "Euro"
     },
@@ -25,42 +25,42 @@
     {
       "code": "gbp",
       "name": "پوند انگلستان",
-      "price": 119300,
+      "price": 119450,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/gb.svg",
       "en": "British Pound"
     },
     {
       "code": "aed",
       "name": "درهم امارات",
-      "price": 24970,
+      "price": 25000,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/ae.svg",
       "en": "UAE Dirham"
     },
     {
       "code": "cad",
       "name": "دلار کانادا",
-      "price": 65850,
+      "price": 65950,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/ca.svg",
       "en": "Canadian Dollar"
     },
     {
       "code": "cny",
       "name": "یوان چین",
-      "price": 12570,
+      "price": 12580,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/cn.svg",
       "en": "Chinese Yuan"
     },
     {
       "code": "aud",
       "name": "دلار استرالیا",
-      "price": 58000,
+      "price": 58050,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/au.svg",
       "en": "Australian Dollar"
     },
     {
       "code": "myr",
       "name": "رینگیت مالزی",
-      "price": 20690,
+      "price": 20710,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/my.svg",
       "en": "Malaysian Ringgit"
     },
@@ -81,63 +81,63 @@
     {
       "code": "sek",
       "name": "کرون سوئد",
-      "price": 9370,
+      "price": 9390,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/se.svg",
       "en": "Swedish Krona"
     },
     {
       "code": "thb",
       "name": "بات تایلند",
-      "price": 2725,
+      "price": 2730,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/th.svg",
       "en": "Thai Baht"
     },
     {
       "code": "amd",
       "name": "درام ارمنستان",
-      "price": 23350,
+      "price": 23380,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/am.svg",
       "en": "Armenian Dram"
     },
     {
       "code": "azn",
       "name": "مانات آذربایجان",
-      "price": 53700,
+      "price": 53750,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/az.svg",
       "en": "Azerbaijani Manat"
     },
     {
       "code": "gel",
       "name": "لاری گرجستان",
-      "price": 33180,
+      "price": 33220,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/ge.svg",
       "en": "Georgian Lari"
     },
     {
       "code": "sar",
       "name": "ریال عربستان",
-      "price": 24360,
+      "price": 24390,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/sa.svg",
       "en": "Saudi Riyal"
     },
     {
       "code": "inr",
       "name": "روپیه هندوستان",
-      "price": 1060,
+      "price": 1065,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/in.svg",
       "en": "Indian Rupee"
     },
     {
       "code": "jpy",
       "name": "ین ژاپن",
-      "price": 63750,
+      "price": 63850,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/jp.svg",
       "en": "Japanese Yen"
     },
     {
       "code": "chf",
       "name": "فرانک سوئیس",
-      "price": 111750,
+      "price": 111850,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/ch.svg",
       "en": "Swiss Franc"
     },
@@ -151,49 +151,49 @@
     {
       "code": "sgd",
       "name": "دلار سنگاپور",
-      "price": 69400,
+      "price": 69500,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/sg.svg",
       "en": "Singapore Dollar"
     },
     {
       "code": "brl",
       "name": "رئال برزیل",
-      "price": 15600,
+      "price": 15620,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/br.svg",
       "en": "Brazilian Real"
     },
     {
       "code": "dkk",
       "name": "کرون دانمارک",
-      "price": 13890,
+      "price": 13900,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/dk.svg",
       "en": "Danish Krone"
     },
     {
       "code": "kwd",
       "name": "دینار کویت",
-      "price": 297750,
+      "price": 298050,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/kw.svg",
       "en": "Kuwaiti Dinar"
     },
     {
       "code": "nok",
       "name": "کرون نروژ",
-      "price": 8640,
+      "price": 8650,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/no.svg",
       "en": "Norwegian Krone"
     },
     {
       "code": "nzd",
       "name": "دلار نیوزلند",
-      "price": 53950,
+      "price": 54000,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/nz.svg",
       "en": "New Zealand Dollar"
     },
     {
       "code": "omr",
       "name": "ریال عمان",
-      "price": 237600,
+      "price": 237850,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/om.svg",
       "en": "Omani Rial"
     },
@@ -214,35 +214,35 @@
     {
       "code": "bhd",
       "name": "دینار بحرین",
-      "price": 242950,
+      "price": 243200,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/bh.svg",
       "en": "Bhutanese Ngultrum"
     },
     {
       "code": "krw",
       "name": "وون کره جنوبی",
-      "price": 6410,
+      "price": 6420,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/kr.svg",
       "en": "Korean Won"
     },
     {
       "code": "syp",
       "name": "پوند سوریه",
-      "price": 712,
+      "price": 713,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/sy.svg",
       "en": "Syrian Pound"
     },
     {
       "code": "qar",
       "name": "ریال قطر",
-      "price": 25100,
+      "price": 25120,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/qa.svg",
       "en": "Qatari Riyal"
     },
     {
       "code": "hkd",
       "name": "دلار هنگ کنگ",
-      "price": 11780,
+      "price": 11790,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/hk.svg",
       "en": "Hong Kong Dollar"
     },
@@ -256,177 +256,16 @@
     {
       "code": "tjs",
       "name": "سامانی تاجیکستان",
-      "price": 8390,
+      "price": 8400,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/tj.svg",
       "en": "Tajikistani Somoni"
     },
     {
       "code": "tmt",
       "name": "منات ترکمنستان",
-      "price": 26100,
+      "price": 26130,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/tm.svg",
       "en": "Turkmen Manat"
-    },
-    {
-      "code": "abshodeh",
-      "name": "مثقال طلا",
-      "price": 30670000,
-      "icon": "https://platform.tgju.org/files/images/gold-bar-1622253729.png",
-      "en": "Mithqal"
-    },
-    {
-      "code": "18ayar",
-      "name": "طلا 18 عیار",
-      "price": 7079270,
-      "icon": "https://platform.tgju.org/files/images/gold-bar-1-1622253841.png",
-      "en": "18 Karat"
-    },
-    {
-      "code": "sekkeh",
-      "name": "سکه امامی",
-      "price": 83300000,
-      "icon": "https://platform.tgju.org/files/images/gold-1697963730.png",
-      "en": "Emami"
-    },
-    {
-      "code": "bahar",
-      "name": "سکه بهار آزادی",
-      "price": 74500000,
-      "icon": "https://platform.tgju.org/files/images/gold-1-1697963918.png",
-      "en": "Bahar Azadi"
-    },
-    {
-      "code": "nim",
-      "name": "نیم سکه",
-      "price": 53000000,
-      "icon": "https://platform.tgju.org/files/images/money-1697964123.png",
-      "en": "Half Coin"
-    },
-    {
-      "code": "rob",
-      "name": "ربع سکه",
-      "price": 28000000,
-      "icon": "https://platform.tgju.org/files/images/revenue-1697964369.png",
-      "en": "Quarter Coin"
-    },
-    {
-      "code": "gram",
-      "name": "سکه گرمی",
-      "price": 9310000,
-      "icon": "https://platform.tgju.org/files/images/parsian-coin-1697964860.png",
-      "en": "Gram Coin"
-    },
-    {
-      "code": "usd_xau",
-      "name": "انس طلا",
-      "price": 3226.63,
-      "icon": "https://platform.tgju.org/files/images/gold-1-1622253769.png",
-      "en": "USD Gold"
-    },
-    {
-      "code": "btc",
-      "name": "بیت کوین",
-      "price": 85794.5,
-      "icon": "https://alanchand.com/images/logo/crypto/btc.svg",
-      "en": "Bitcoin"
-    },
-    {
-      "code": "eth",
-      "name": "اتریوم",
-      "price": 1643.5300293,
-      "icon": "https://alanchand.com/images/logo/crypto/eth.svg",
-      "en": "Ethereum"
-    },
-    {
-      "code": "xmr",
-      "name": "مونرو",
-      "price": 212.61000061,
-      "icon": "https://alanchand.com/images/logo/crypto/xmr.svg",
-      "en": "Monero"
-    },
-    {
-      "code": "trx",
-      "name": "ترون",
-      "price": 0.25121999,
-      "icon": "https://alanchand.com/images/logo/crypto/trx.svg",
-      "en": "Tron"
-    },
-    {
-      "code": "usdt",
-      "name": "تتر",
-      "price": 89789,
-      "icon": "https://alanchand.com/images/logo/crypto/usdt.svg",
-      "en": "Tether"
-    },
-    {
-      "code": "bnb",
-      "name": "بایننس کوین",
-      "price": 589.29998779,
-      "icon": "https://alanchand.com/images/logo/crypto/bnb.svg",
-      "en": "Binance Coin"
-    },
-    {
-      "code": "ltc",
-      "name": "لایت کوین",
-      "price": 78.26000214,
-      "icon": "https://alanchand.com/images/logo/crypto/ltc.svg",
-      "en": "Litecoin"
-    },
-    {
-      "code": "shib",
-      "name": "شیبا",
-      "price": 0.011977,
-      "icon": "https://alanchand.com/images/logo/crypto/shib.svg",
-      "en": "Shiba Ino"
-    },
-    {
-      "code": "ada",
-      "name": "کاردانو",
-      "price": 0.6469,
-      "icon": "https://alanchand.com/images/logo/crypto/ada.svg",
-      "en": "Cardano"
-    },
-    {
-      "code": "bch",
-      "name": "بیت‌کوین‌کش",
-      "price": 335.60998535,
-      "icon": "https://alanchand.com/images/logo/crypto/bch.svg",
-      "en": "Bitcoin Cash"
-    },
-    {
-      "code": "dai",
-      "name": "دای",
-      "price": 89879,
-      "icon": "https://alanchand.com/images/logo/crypto/dai.svg",
-      "en": "Dai"
-    },
-    {
-      "code": "etc",
-      "name": "اتریوم کلاسیک",
-      "price": 15.31999969,
-      "icon": "https://alanchand.com/images/logo/crypto/etc.svg",
-      "en": "Eth Classic"
-    },
-    {
-      "code": "uni",
-      "name": "یونی‌سواپ",
-      "price": 5.41400003,
-      "icon": "https://alanchand.com/images/logo/crypto/uni.svg",
-      "en": "Uniswap"
-    },
-    {
-      "code": "doge",
-      "name": "دوج‌کوین",
-      "price": 0.1602,
-      "icon": "https://alanchand.com/images/logo/crypto/doge.svg",
-      "en": "Dogecoin"
-    },
-    {
-      "code": "link",
-      "name": "چین‌لینک",
-      "price": 12.72200012,
-      "icon": "https://alanchand.com/images/logo/crypto/link.svg",
-      "en": "Chainlink"
     }
   ]
 }
