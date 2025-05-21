@@ -236,9 +236,9 @@ func fetchCryptoData() ([]Currency, error) {
 			price = toman
 		}
 
-		// btc price only to one decimal place
+		// btc price => no decimal place
 		if code == "btc" {
-			priceStr := fmt.Sprintf("%.1f", price)
+			priceStr := fmt.Sprintf("%.0f", price)
 			price, _ = strconv.ParseFloat(priceStr, 64)
 		}
 		
