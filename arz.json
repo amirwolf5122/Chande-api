@@ -1,5 +1,5 @@
 {
-  "date": "1404/05/12, 14:40",
+  "date": "1404/05/12, 15:00",
   "currencies": [
     {
       "code": "usd",
@@ -310,18 +310,18 @@
       "en": "Quarter Coin"
     },
     {
-      "code": "gram",
-      "name": "سکه گرمی",
-      "price": 8630000,
-      "icon": "https://platform.tgju.org/files/images/parsian-coin-1697964860.png",
-      "en": "Gram Coin"
-    },
-    {
       "code": "usd_xau",
       "name": "انس طلا",
       "price": 3302.32,
       "icon": "https://platform.tgju.org/files/images/gold-1-1622253769.png",
       "en": "USD Gold"
+    },
+    {
+      "code": "gram",
+      "name": "سکه گرمی",
+      "price": 0,
+      "icon": "https://platform.tgju.org/files/images/parsian-coin-1697964860.png",
+      "en": "Gram Coin"
     },
     {
       "code": "btc",
