@@ -1,45 +1,45 @@
 {
-  "date": "1404/06/18, 20:50",
+  "date": "1404/06/18, 21:09",
   "currencies": [
     {
       "code": "usd",
       "name": "دلار آمریکا",
-      "price": 101300,
+      "price": 101400,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/us.svg",
       "en": "Usd"
     },
     {
       "code": "eur",
       "name": "یورو",
-      "price": 118900,
+      "price": 119000,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/eu.svg",
       "en": "Eur"
     },
     {
       "code": "aed",
       "name": "درهم",
-      "price": 27550,
+      "price": 27580,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/ae.svg",
       "en": "Aed"
     },
     {
       "code": "try",
       "name": "لیر ترکیه",
-      "price": 2500,
+      "price": 2510,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/tr.svg",
       "en": "Try"
     },
     {
       "code": "gbp",
       "name": "پوند انگلیس",
-      "price": 137100,
+      "price": 137200,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/gb.svg",
       "en": "Gbp"
     },
     {
       "code": "cny",
       "name": "یوان چین",
-      "price": 14220,
+      "price": 14240,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/cn.svg",
       "en": "Cny"
     },
@@ -53,7 +53,7 @@
     {
       "code": "aud",
       "name": "دلار استرالیا",
-      "price": 66800,
+      "price": 66900,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/au.svg",
       "en": "Aud"
     },
@@ -67,21 +67,21 @@
     {
       "code": "iqd",
       "name": "صد دینار عراق",
-      "price": 7090,
+      "price": 7100,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/iq.svg",
       "en": "Iqd"
     },
     {
       "code": "myr",
       "name": "رینگیت مالزی",
-      "price": 24080,
+      "price": 24100,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/my.svg",
       "en": "Myr"
     },
     {
       "code": "gel",
       "name": "لاری گرجستان",
-      "price": 37600,
+      "price": 37700,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/ge.svg",
       "en": "Gel"
     },
@@ -95,7 +95,7 @@
     {
       "code": "amd",
       "name": "صد درام ارمنستان",
-      "price": 26480,
+      "price": 26500,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/am.svg",
       "en": "Amd"
     },
@@ -109,7 +109,7 @@
     {
       "code": "omr",
       "name": "ریال عمان",
-      "price": 263500,
+      "price": 263700,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/om.svg",
       "en": "Omr"
     },
@@ -130,14 +130,14 @@
     {
       "code": "jpy",
       "name": "صد ین ژاپن",
-      "price": 68800,
+      "price": 68900,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/jp.svg",
       "en": "Jpy"
     },
     {
       "code": "sar",
       "name": "ریال عربستان",
-      "price": 27020,
+      "price": 27040,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/sa.svg",
       "en": "Sar"
     },
@@ -158,14 +158,14 @@
     {
       "code": "chf",
       "name": "فرانک سوئیس",
-      "price": 127300,
+      "price": 127400,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/ch.svg",
       "en": "Chf"
     },
     {
       "code": "qar",
       "name": "ریال قطر",
-      "price": 27820,
+      "price": 27860,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/qa.svg",
       "en": "Qar"
     },
@@ -186,28 +186,28 @@
     {
       "code": "nzd",
       "name": "دلار نیوزلند",
-      "price": 60120,
+      "price": 60180,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/nz.svg",
       "en": "Nzd"
     },
     {
       "code": "sgd",
       "name": "دلار سنگاپور",
-      "price": 79000,
+      "price": 79080,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/sg.svg",
       "en": "Sgd"
     },
     {
       "code": "hkd",
       "name": "دلار هنگ کنگ",
-      "price": 13000,
+      "price": 13020,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/hk.svg",
       "en": "Hkd"
     },
     {
       "code": "kwd",
       "name": "دینار کویت",
-      "price": 331960,
+      "price": 332280,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/kw.svg",
       "en": "Kwd"
     },
@@ -221,21 +221,21 @@
     {
       "code": "bhd",
       "name": "دینار بحرین",
-      "price": 269420,
+      "price": 269680,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/bh.svg",
       "en": "Bhd"
     },
     {
       "code": "tjs",
       "name": "سامانی تاجیکستان",
-      "price": 10700,
+      "price": 10720,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/tj.svg",
       "en": "Tjs"
     },
     {
       "code": "tmt",
       "name": "منات ترکمنستان",
-      "price": 28940,
+      "price": 28980,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/tm.svg",
       "en": "Tmt"
     },
@@ -256,7 +256,7 @@
     {
       "code": "brl",
       "name": "رئال برزیل",
-      "price": 18680,
+      "price": 18700,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/br.svg",
       "en": "Brl"
     },
@@ -270,42 +270,42 @@
     {
       "code": "usd-hav",
       "name": "حواله دلار آمریکا",
-      "price": 101500,
+      "price": 101600,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/us.svg",
       "en": "Usd-Hav"
     },
     {
       "code": "usd-ist",
       "name": "دلار استانبول",
-      "price": 101100,
+      "price": 101200,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/us.svg",
       "en": "Usd-Ist"
     },
     {
       "code": "usd-sulaymaniyah",
       "name": "دلار سلیمانیه",
-      "price": 101200,
+      "price": 101300,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/us.svg",
       "en": "Usd-Sulaymaniyah"
     },
     {
       "code": "usd-herat",
       "name": "دلار هرات",
-      "price": 101100,
+      "price": 101200,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/us.svg",
       "en": "Usd-Herat"
     },
     {
       "code": "eur-hav",
       "name": "حواله یورو",
-      "price": 119100,
+      "price": 119200,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/eu.svg",
       "en": "Eur-Hav"
     },
     {
       "code": "eur-ist",
       "name": "یورو استانبول",
-      "price": 119100,
+      "price": 119200,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/eu.svg",
       "en": "Eur-Ist"
     },
@@ -354,7 +354,7 @@
     {
       "code": "gram",
       "name": "سکه گرمی",
-      "price": 10810000,
+      "price": 10820000,
       "icon": "https://platform.tgju.org/files/images/parsian-coin-1697964860.png",
       "en": "Sek"
     },
