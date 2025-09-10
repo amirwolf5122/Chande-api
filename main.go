@@ -130,16 +130,26 @@ func fetchDataCurrency(cm map[string]string) ([]Currency, error) {
         price := parseNumber(priceStr)
 
         if code != "" {
-            flag := code
-            enName := cm[flag]
-            if enName == "" {
-                enName = toTitleCase(code)
+            // پرچم توی کلاس i.flag-xx هست
+            flag := ""
+            if iTag := s.Find("td.currName .flag"); iTag.Length() > 0 {
+                for _, cls := range strings.Split(iTag.AttrOr("class", ""), " ") {
+                    if strings.HasPrefix(cls, "flag-") {
+                        flag = strings.TrimPrefix(cls, "flag-")
+                        break
+                    }
+                }
             }
             // اصلاح آیکون برای یورو
             if flag == "eu" {
                 flag = "european_union"
             }
             icon := fmt.Sprintf("https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/%s.svg", flag)
+
+            enName := cm[flag]
+            if enName == "" {
+                enName = toTitleCase(code)
+            }
 
             data = append(data, Currency{
                 Code:  code,
@@ -158,14 +168,14 @@ func fetchGoldData() ([]Currency, error) {
     // مپ آیکون‌ها
     var goldIcons = map[string]string{
         "abshodeh": "https://platform.tgju.org/files/images/gold-bar-1622253729.png",
-        "18ayar": "https://platform.tgju.org/files/images/gold-bar-1-1622253841.png",
-        "sekkeh": "https://platform.tgju.org/files/images/gold-1697963730.png",
-        "bahar": "https://platform.tgju.org/files/images/gold-1-1697963918.png",
-        "nim": "https://platform.tgju.org/files/images/money-1697964123.png",
-        "rob": "https://platform.tgju.org/files/images/revenue-1697964369.png",
-        "sek": "https://platform.tgju.org/files/images/parsian-coin-1697964860.png",
+        "18ayar":   "https://platform.tgju.org/files/images/gold-bar-1-1622253841.png",
+        "sekkeh":   "https://platform.tgju.org/files/images/gold-1697963730.png",
+        "bahar":    "https://platform.tgju.org/files/images/gold-1-1697963918.png",
+        "nim":      "https://platform.tgju.org/files/images/money-1697964123.png",
+        "rob":      "https://platform.tgju.org/files/images/revenue-1697964369.png",
+        "sek":      "https://platform.tgju.org/files/images/parsian-coin-1697964860.png",
         "usd_xau": "https://platform.tgju.org/files/images/gold-1-1622253769.png",
-        "xag": "https://platform.tgju.org/files/images/silver-1624079710.png",
+        "xag": "https://platform.tgju.org/files/images/silver-1624079710.png"
     }
 
     resp, err := http.Get("https://alanchand.com/gold-price")
@@ -286,5 +296,4 @@ func main() {
     jsonData, _ := json.MarshalIndent(output, "", "  ")
     _ = os.WriteFile("arz.json", jsonData, 0644)
     fmt.Println("✅ arz.json ساخته شد")
-
 }
