@@ -1,24 +1,24 @@
 {
-  "date": "1404/06/19, 17:15",
+  "date": "1404/06/19, 17:51",
   "currencies": [
     {
       "code": "usd",
       "name": "دلار آمریکا",
-      "price": 99150,
+      "price": 99200,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/us.svg",
       "en": "US dollar"
     },
     {
       "code": "eur",
       "name": "یورو",
-      "price": 116100,
+      "price": 116200,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/european_union.svg",
       "en": "Eur"
     },
     {
       "code": "aed",
       "name": "درهم",
-      "price": 26970,
+      "price": 26980,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/ae.svg",
       "en": "UAE dirham"
     },
@@ -32,35 +32,35 @@
     {
       "code": "gbp",
       "name": "پوند انگلیس",
-      "price": 134100,
+      "price": 134200,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/gb.svg",
       "en": "British pound"
     },
     {
       "code": "cny",
       "name": "یوان چین",
-      "price": 13920,
+      "price": 13940,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/cn.svg",
       "en": "Chinese yuan"
     },
     {
       "code": "cad",
       "name": "دلار کانادا",
-      "price": 71600,
+      "price": 71700,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/ca.svg",
       "en": "Canadian dollar"
     },
     {
       "code": "aud",
       "name": "دلار استرالیا",
-      "price": 65500,
+      "price": 65600,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/au.svg",
       "en": "Australian dollar"
     },
     {
       "code": "rub",
       "name": "روبل روسیه",
-      "price": 1185,
+      "price": 1180,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/ru.svg",
       "en": "Russian ruble"
     },
@@ -74,7 +74,7 @@
     {
       "code": "myr",
       "name": "رینگیت مالزی",
-      "price": 23540,
+      "price": 23560,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/my.svg",
       "en": "Malaysian Ringgit"
     },
@@ -109,21 +109,21 @@
     {
       "code": "omr",
       "name": "ریال عمان",
-      "price": 257900,
+      "price": 258000,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/om.svg",
       "en": "Omani rial"
     },
     {
       "code": "inr",
       "name": "روپیه هند",
-      "price": 1120,
+      "price": 1130,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/in.svg",
       "en": "Indian rupee"
     },
     {
       "code": "pkr",
       "name": "روپیه پاکستان",
-      "price": 349,
+      "price": 350,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/pk.svg",
       "en": "Pakistani rupee"
     },
@@ -137,7 +137,7 @@
     {
       "code": "sar",
       "name": "ریال عربستان",
-      "price": 26440,
+      "price": 26460,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/sa.svg",
       "en": "Saudi riyal"
     },
@@ -151,84 +151,84 @@
     {
       "code": "sek",
       "name": "کرون سوئد",
-      "price": 10600,
+      "price": 10620,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/se.svg",
       "en": "Swedish krona"
     },
     {
       "code": "chf",
       "name": "فرانک سوئیس",
-      "price": 124300,
+      "price": 124500,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/ch.svg",
       "en": "Swiss franc"
     },
     {
       "code": "qar",
       "name": "ریال قطر",
-      "price": 27240,
+      "price": 27260,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/qa.svg",
       "en": "Qatari riyal"
     },
     {
       "code": "krw",
       "name": "صد وون کره جنوبی",
-      "price": 7140,
+      "price": 7150,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/kr.svg",
       "en": "Korean won"
     },
     {
       "code": "nok",
       "name": "کرون نروژ",
-      "price": 9980,
+      "price": 10000,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/no.svg",
       "en": "Norwegian krone"
     },
     {
       "code": "nzd",
       "name": "دلار نیوزلند",
-      "price": 58920,
+      "price": 58980,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/nz.svg",
       "en": "New Zealand dollar"
     },
     {
       "code": "sgd",
       "name": "دلار سنگاپور",
-      "price": 77280,
+      "price": 77380,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/sg.svg",
       "en": "Singapore dollar"
     },
     {
       "code": "hkd",
       "name": "دلار هنگ کنگ",
-      "price": 12720,
+      "price": 12740,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/hk.svg",
       "en": "Hong Kong dollar"
     },
     {
       "code": "kwd",
       "name": "دینار کویت",
-      "price": 324860,
+      "price": 324940,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/kw.svg",
       "en": "Kuwaiti dinar"
     },
     {
       "code": "dkk",
       "name": "کرون دانمارک",
-      "price": 15560,
+      "price": 15580,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/dk.svg",
       "en": "Danish krone"
     },
     {
       "code": "bhd",
       "name": "دینار بحرین",
-      "price": 263700,
+      "price": 263820,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/bh.svg",
       "en": "Bhutanese ngultrum"
     },
     {
       "code": "tjs",
       "name": "سامانی تاجیکستان",
-      "price": 10460,
+      "price": 10440,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/tj.svg",
       "en": "Tajikistani somoni"
     },
@@ -298,14 +298,14 @@
     {
       "code": "eur-hav",
       "name": "حواله یورو",
-      "price": 116300,
+      "price": 116400,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/european_union.svg",
       "en": "Eur-Hav"
     },
     {
       "code": "eur-ist",
       "name": "یورو استانبول",
-      "price": 116300,
+      "price": 116400,
       "icon": "https://raw.githubusercontent.com/HatScripts/circle-flags/refs/heads/gh-pages/flags/european_union.svg",
       "en": "Eur-Ist"
     },
@@ -361,7 +361,7 @@
     {
       "code": "usd_xau",
       "name": "انس طلا",
-      "price": 3653.35,
+      "price": 3652.71,
       "icon": "https://platform.tgju.org/files/images/gold-1-1622253769.png",
       "en": "Usd_xau"
     },
@@ -375,35 +375,35 @@
     {
       "code": "usdt",
       "name": "تتر",
-      "price": 99315,
+      "price": 99170,
       "icon": "https://alanchand.com/assets/img/crypto/USDT.svg",
       "en": "Tether"
     },
     {
       "code": "btc",
       "name": "بیت کوین",
-      "price": 113733,
+      "price": 114032,
       "icon": "https://alanchand.com/assets/img/crypto/BTC.svg",
       "en": "Bitcoin"
     },
     {
       "code": "eth",
       "name": "اتریوم",
-      "price": 4382,
+      "price": 4437,
       "icon": "https://alanchand.com/assets/img/crypto/ETH.svg",
       "en": "Ethereum"
     },
     {
       "code": "xrp",
       "name": "ریپل",
-      "price": 3.001,
+      "price": 3.014,
       "icon": "https://alanchand.com/assets/img/crypto/XRP.svg",
       "en": "Ripple"
     },
     {
       "code": "bnb",
       "name": "بایننس کوین",
-      "price": 902.1,
+      "price": 901.3,
       "icon": "https://alanchand.com/assets/img/crypto/BNB.svg",
       "en": "Binance Coin"
     },
@@ -417,21 +417,21 @@
     {
       "code": "ada",
       "name": "کاردانو",
-      "price": 0.887,
+      "price": 0.892,
       "icon": "https://alanchand.com/assets/img/crypto/ADA.svg",
       "en": "Cardano"
     },
     {
       "code": "doge",
       "name": "دوج‌کوین",
-      "price": 0.2429,
+      "price": 0.2437,
       "icon": "https://alanchand.com/assets/img/crypto/DOGE.svg",
       "en": "Dogecoin"
     },
     {
       "code": "ton",
       "name": "تون کوین",
-      "price": 3.124,
+      "price": 3.135,
       "icon": "https://alanchand.com/assets/img/crypto/TON.svg",
       "en": "Toncoin"
     },
@@ -445,84 +445,84 @@
     {
       "code": "sol",
       "name": "سولانا",
-      "price": 223.7,
+      "price": 223.9,
       "icon": "https://alanchand.com/assets/img/crypto/SOL.svg",
       "en": "Solana"
     },
     {
       "code": "trx",
       "name": "ترون",
-      "price": 0.338,
+      "price": 0.34,
       "icon": "https://alanchand.com/assets/img/crypto/TRX.svg",
       "en": "Tron"
     },
     {
       "code": "cake",
       "name": "پنکیک سواپ",
-      "price": 2.542,
+      "price": 2.548,
       "icon": "https://alanchand.com/assets/img/crypto/CAKE.svg",
       "en": "Pancakeswap"
     },
     {
       "code": "avax",
       "name": "آوالانچ",
-      "price": 28.33,
+      "price": 28.35,
       "icon": "https://alanchand.com/assets/img/crypto/AVAX.svg",
       "en": "Avalanche"
     },
     {
       "code": "dot",
       "name": "پولکادات",
-      "price": 4.171,
+      "price": 4.177,
       "icon": "https://alanchand.com/assets/img/crypto/DOT.svg",
       "en": "Polkadot"
     },
     {
       "code": "link",
       "name": "چین‌لینک",
-      "price": 23.74,
+      "price": 23.8,
       "icon": "https://alanchand.com/assets/img/crypto/LINK.svg",
       "en": "Chainlink"
     },
     {
       "code": "ltc",
       "name": "لایت‌کوین",
-      "price": 114.64,
+      "price": 114.7,
       "icon": "https://alanchand.com/assets/img/crypto/LTC.svg",
       "en": "Litecoin"
     },
     {
       "code": "pepe",
       "name": "پپه",
-      "price": 0.00001056,
+      "price": 0.00001057,
       "icon": "https://alanchand.com/assets/img/crypto/PEPE.svg",
       "en": "Pepe"
     },
     {
       "code": "uni",
       "name": "یونی‌سواپ",
-      "price": 9.696,
+      "price": 9.766,
       "icon": "https://alanchand.com/assets/img/crypto/UNI.svg",
       "en": "Uniswap"
     },
     {
       "code": "xlm",
       "name": "استلار",
-      "price": 0.3832,
+      "price": 0.384,
       "icon": "https://alanchand.com/assets/img/crypto/XLM.svg",
       "en": "Stellar"
     },
     {
       "code": "fil",
       "name": "فایل‌کوین",
-      "price": 2.491,
+      "price": 2.497,
       "icon": "https://alanchand.com/assets/img/crypto/FIL.svg",
       "en": "Filecoin"
     },
     {
       "code": "near",
       "name": "نیر پروتکل",
-      "price": 2.713,
+      "price": 2.711,
       "icon": "https://alanchand.com/assets/img/crypto/NEAR.svg",
       "en": "Near Protocol"
     },
@@ -536,7 +536,7 @@
     {
       "code": "aave",
       "name": "آوه",
-      "price": 301.08,
+      "price": 304.9,
       "icon": "https://alanchand.com/assets/img/crypto/AAVE.svg",
       "en": "Aave"
     },
@@ -550,105 +550,105 @@
     {
       "code": "xtz",
       "name": "تزوس",
-      "price": 0.7365,
+      "price": 0.7406,
       "icon": "https://alanchand.com/assets/img/crypto/XTZ.svg",
       "en": "Tezos"
     },
     {
       "code": "flow",
       "name": "فلو",
-      "price": 0.413,
+      "price": 0.416,
       "icon": "https://alanchand.com/assets/img/crypto/FLOW.svg",
       "en": "Flow"
     },
     {
       "code": "sand",
       "name": "سندباکس",
-      "price": 0.2994,
+      "price": 0.3014,
       "icon": "https://alanchand.com/assets/img/crypto/SAND.svg",
       "en": "The Sandbox"
     },
     {
       "code": "mana",
       "name": "دی‌سنترالند",
-      "price": 0.3234,
+      "price": 0.3252,
       "icon": "https://alanchand.com/assets/img/crypto/MANA.svg",
       "en": "Decentraland"
     },
     {
       "code": "axs",
       "name": "اکسی اینفینیتی",
-      "price": 2.543,
+      "price": 2.551,
       "icon": "https://alanchand.com/assets/img/crypto/AXS.svg",
       "en": "Axie Infinity"
     },
     {
       "code": "chz",
       "name": "چیلیز",
-      "price": 0.04266,
+      "price": 0.04281,
       "icon": "https://alanchand.com/assets/img/crypto/CHZ.svg",
       "en": "Chiliz"
     },
     {
       "code": "enj",
       "name": "انجین کوین",
-      "price": 0.0707,
+      "price": 0.071,
       "icon": "https://alanchand.com/assets/img/crypto/ENJ.svg",
       "en": "Enjin Coin"
     },
     {
       "code": "zec",
       "name": "زدکش",
-      "price": 48.64,
+      "price": 48.45,
       "icon": "https://alanchand.com/assets/img/crypto/ZEC.svg",
       "en": "Zcash"
     },
     {
       "code": "gala",
       "name": "گالا",
-      "price": 0.01731,
+      "price": 0.01735,
       "icon": "https://alanchand.com/assets/img/crypto/GALA.svg",
       "en": "Gala"
     },
     {
       "code": "lrc",
       "name": "لوپرینگ",
-      "price": 0.0979,
+      "price": 0.0982,
       "icon": "https://alanchand.com/assets/img/crypto/LRC.svg",
       "en": "Loopring"
     },
     {
       "code": "bat",
       "name": "بت",
-      "price": 0.1601,
+      "price": 0.1606,
       "icon": "https://alanchand.com/assets/img/crypto/BAT.svg",
       "en": "Basic Attention Token"
     },
     {
       "code": "one",
       "name": "هارمونی",
-      "price": 0.01086,
+      "price": 0.0109,
       "icon": "https://alanchand.com/assets/img/crypto/ONE.svg",
       "en": "Harmony"
     },
     {
       "code": "zen",
       "name": "هورایزن",
-      "price": 7.549,
+      "price": 7.582,
       "icon": "https://alanchand.com/assets/img/crypto/ZEN.svg",
       "en": "Horizen"
     },
     {
       "code": "cvc",
       "name": "سیویک",
-      "price": 0.0921,
+      "price": 0.0924,
       "icon": "https://alanchand.com/assets/img/crypto/CVC.svg",
       "en": "Civic"
     },
     {
       "code": "storj",
       "name": "استورج",
-      "price": 0.2637,
+      "price": 0.2641,
       "icon": "https://alanchand.com/assets/img/crypto/STORJ.svg",
       "en": "Storj"
     }
