@@ -175,7 +175,7 @@ func fetchGoldData() ([]Currency, error) {
         "rob":      "https://platform.tgju.org/files/images/revenue-1697964369.png",
         "sek":      "https://platform.tgju.org/files/images/parsian-coin-1697964860.png",
         "usd_xau": "https://platform.tgju.org/files/images/gold-1-1622253769.png",
-        "xag": "https://platform.tgju.org/files/images/silver-1624079710.png"
+        "xag": "https://platform.tgju.org/files/images/silver-1624079710.png",
     }
 
     resp, err := http.Get("https://alanchand.com/gold-price")
